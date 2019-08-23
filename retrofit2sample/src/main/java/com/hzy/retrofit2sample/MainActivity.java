@@ -1,9 +1,5 @@
 package com.hzy.retrofit2sample;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,33 +8,31 @@ import com.hzy.retrofit2sample.bean.WeatherInfo;
 import com.hzy.retrofit2sample.http.CustomResourceSubsciber;
 import com.hzy.retrofit2sample.http.RetrofitManager;
 import com.hzy.retrofit2sample.util.RxUtil;
+import com.hzy.retrofit2sample.util.StatusBarUtil;
 import com.hzy.retrofit2sample.util.XLog;
 
-import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
-import io.reactivex.subscribers.ResourceSubscriber;
 
-public class MainActivity extends AppCompatActivity {
-    private Unbinder mUnbinder;
+public class MainActivity extends BaseActivity {
+   // private Unbinder mUnbinder;
     @BindView(R.id.getWeather)
     Button getWeather;
     @BindView(R.id.tv_Weather)
     TextView tv_Weather;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mUnbinder = ButterKnife.bind(this);
+    public void init() {
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     @OnClick({R.id.getWeather})
@@ -78,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mUnbinder != null && mUnbinder != Unbinder.EMPTY) {
+        /*if (mUnbinder != null && mUnbinder != Unbinder.EMPTY) {
             mUnbinder.unbind();
-        }
+        }*/
     }
 }
