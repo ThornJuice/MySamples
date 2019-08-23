@@ -7,5 +7,74 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <!-- 正文字体-->
+    <style name="text_body">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_body</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 黑色字体 -->
+    <style name="text_black">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 白色字体 -->
+    <style name="text_white">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 灰色字体 -->
+    <style name="text_gray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_gray</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 红色字体 -->
+    <style name="text_red">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/red_text</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 常用布局 LinearLayout -->
+    <style name="item_LinearLayout">
+        <item name="android:paddingLeft">@dimen/border_15</item>
+        <item name="android:paddingRight">@dimen/border_15</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/border_50</item>
+        <item name="android:background">@drawable/selecter_pressed</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- 常用布局 LinearLayout 2 -->
+    <style name="item_ll_whith_out_action">
+        <item name="android:paddingLeft">@dimen/border_15</item>
+        <item name="android:paddingRight">@dimen/border_15</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/border_40</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- editText -->
+    <style name="editText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/text_body</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+    <!-- checkBox -->
+   <!-- <style name="customCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>-->
 </resources>

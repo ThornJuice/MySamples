@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#000000</color>
+    <color name="orange">#FF7D26</color>
+    <color name="red_text">#FF6A70</color>
+    <color name="white">#ffffff</color>
+    <color name="black_60">#600d0c0c</color>
+    <color name="qian_hui">#F2F2F2</color>
+    <color name="background">#FBFBFB</color>
+    <color name="topline">#EDEDED</color>
+    <color name="red">#ff0000</color>
+    <color name="red_58">#F05858</color>
+    <color name="red_ff">#FF6A70</color>
+    <color name="hong">#E02433</color>
+    <color name="gray">#8a8a8a</color>
+    <color name="gray_c6">#C6C6C6</color>
+    <color name="gray_f9">#f9f9f9</color>
+    <color name="gray_text">#989898</color>
+    <color name="black_text">#282828</color>
+    <color name="gray_light">#c6c5c5</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="transparent_black_55">#55000000</color>
+    <color name="transparent_black_99">#99000000</color>
+    <color name="transparent_white_55">#55ffffff</color>
+    <color name="blue_text">#5AC4FD</color>
+    <color name="blue_36">#3699FF</color>
+    <color name="blue_68">#68B2FF</color>
+    <color name="black">#000000</color>
+    <color name="black_dc">#dc1b1a1a</color>
+    <color name="grey">#808080</color>
+    <color name="right_bg">#696969</color>
+    <color name="preview_bottom_toolbar_bg">#CC000000</color>
+    <color name="preview_bottom_size">#61FFFFFF</color>
+    <color name="partTranslucent">#39000000</color>
+    <color name="deng_lu_hui">#B69DAD</color>
+    <color name="white_btn_press">#D2D2D2</color>
+
+    <color name="light_purple">#C05AED</color>
+    <color name="tv_after">#666666</color>
+
+    <color name="pink_theme">#F75996</color>
+    <color name="pink_light">#33FEA89E</color>
+    <color name="rou">#FFE5E2</color>
+    <color name="bg_theme">#F4F4F4</color>
+    <color name="zong">#D1953F</color>
+    <color name="yellow">#FBD919</color>
+    <color name="text_body">#666666</color>
+    <color name="text_gray">#999999</color>
+    <color name="text_black">#333333</color>
+    <color name="pressed">#F4F4F4</color>
 </resources>
