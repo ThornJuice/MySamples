@@ -1,4 +1,6 @@
 package com.example.mvpsample.testmodel;
 
-class TestModel {
+import com.example.mvpsample.testcontract.TestContract;
+
+public class TestModel implements TestContract.Model {
 }

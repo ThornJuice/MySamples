@@ -1,4 +1,12 @@
 package com.example.mvpsample.testcontract;
 
-interface TestContract {
+public interface TestContract {
+    interface Model {
+    }
+
+    interface View {
+    }
+
+    interface Presenter {
+    }
 }

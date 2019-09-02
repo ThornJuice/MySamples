@@ -1,4 +1,6 @@
 package com.example.mvpsample.testpresenter;
 
-class TestPresenter {
+import com.example.mvpsample.testcontract.TestContract;
+
+public class TestPresenter implements TestContract.Presenter {
 }

@@ -8,9 +8,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/baseKotlinFrame" />
             <option value="$PROJECT_DIR$/borderLayout" />
             <option value="$PROJECT_DIR$/customProgressBar" />
             <option value="$PROJECT_DIR$/greenDaoSample" />
+            <option value="$PROJECT_DIR$/mvpsample" />
             <option value="$PROJECT_DIR$/notifySample" />
             <option value="$PROJECT_DIR$/retrofit2sample" />
           </set>
