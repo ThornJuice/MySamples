@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".fragment.DaiBanFragment">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/blue_theme"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+        <LinearLayout
+                android:layout_marginTop="@dimen/border_10"
+                android:layout_marginBottom="@dimen/border_10"
+                android:layout_marginLeft="@dimen/border_20"
+                android:layout_marginRight="@dimen/border_20"
+                android:orientation="horizontal"
+                android:id="@+id/ll_search_bar"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:background="@drawable/shape_search_bar"
+                android:layout_height="@dimen/border_30">
+            <ImageView
+                    android:src="@mipmap/ic_home_search"
+                    android:layout_width="@dimen/border_18"
+                    android:layout_height="@dimen/border_18"/>
+            <TextView
+                    android:layout_marginLeft="@dimen/border_10"
+                    android:text="搜索用户"
+                    style="@style/text_gray"
+            />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
