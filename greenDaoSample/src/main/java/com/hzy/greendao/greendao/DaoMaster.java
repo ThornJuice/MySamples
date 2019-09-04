@@ -1,4 +1,4 @@
-package com.hzy.sample.greendao.greendao;
+package com.hzy.greendao.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,12 +21,14 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        StudentDao.createTable(db, ifNotExists);
+        TaskDao.createTable(db, ifNotExists);
+        CityDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        StudentDao.dropTable(db, ifExists);
+        TaskDao.dropTable(db, ifExists);
+        CityDao.dropTable(db, ifExists);
     }
 
     /**
@@ -45,7 +47,8 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(StudentDao.class);
+        registerDaoClass(TaskDao.class);
+        registerDaoClass(CityDao.class);
     }
 
     public DaoSession newSession() {
