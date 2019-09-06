@@ -10,13 +10,15 @@ import com.hzy.smartfield.base.BaseFragment
  */
 
 class CustomerFragment : BaseFragment() {
-    override fun attachLayoutRes(): Int = R.layout.fragment_customer
-
     override fun initView(view: View) {
     }
 
-    override fun lazyLoad() {
-
+    override fun initData() {
     }
+
+    override fun attachLayoutRes(): Int = R.layout.fragment_customer
+
+
+
 
 }

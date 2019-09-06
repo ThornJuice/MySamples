@@ -20,7 +20,7 @@ android {
         }
     }
     greendao {
-        schemaVersion 1//数据库版本号
+        schemaVersion 2//数据库版本号
         daoPackage 'com.hzy.greendao.greendao'
         targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
 
@@ -47,6 +47,7 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation files('libs/SQLiteStudioRemote.jar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v2.0.0'
 }
 repositories {
     mavenCentral()

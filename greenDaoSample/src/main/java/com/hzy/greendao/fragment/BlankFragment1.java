@@ -9,11 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hzy.greendao.Constant;
 import com.hzy.greendao.R;
 import com.hzy.greendao.Task;
 import com.hzy.greendao.adapter.TaskListAdapter;
-import com.hzy.greendao.db.DbHelperUtil;
-import com.hzy.greendao.db.TaskHelper;
+import com.hzy.greendao.db.DbHelper;
+import com.hzy.greendao.greendao.TaskDao;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -21,16 +22,12 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class BlankFragment1 extends Fragment {
-    TaskHelper taskHelper;
+    TaskDao taskDao;
     TaskListAdapter adapter;
     RecyclerView recyclerView;
 
     public BlankFragment1() {
-        // Required empty public constructor
     }
 
 
@@ -39,25 +36,13 @@ public class BlankFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_blank_fragment1, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
-        view.findViewById(R.id.btn_query).setVisibility(View.GONE);
-        view.findViewById(R.id.btn_query).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                taskHelper = DbHelperUtil.getTaskHelper();
-                List<Task> taskList = taskHelper.queryAll();
-
-                adapter =new TaskListAdapter(getActivity(),taskList);
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                recyclerView.setAdapter(adapter);
-            }
-        });
         initData();
         return view;
     }
 
     private void initData() {
-        taskHelper = DbHelperUtil.getTaskHelper();
-        List<Task> taskList = taskHelper.queryAll();
+        taskDao =  DbHelper.getInstance(Constant.DB_TASK).getDaoSession().getTaskDao();
+        List<Task> taskList = taskDao.loadAll();
 
         adapter =new TaskListAdapter(getActivity(),taskList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -66,8 +51,8 @@ public class BlankFragment1 extends Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(String task) {
         if("1".equals(task)){
-            taskHelper = DbHelperUtil.getTaskHelper();
-            List<Task> taskList = taskHelper.queryAll();
+            taskDao =  DbHelper.getInstance(Constant.DB_TASK).getDaoSession().getTaskDao();
+            List<Task> taskList = taskDao.loadAll();
             adapter =new TaskListAdapter(getActivity(),taskList);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             recyclerView.setAdapter(adapter);

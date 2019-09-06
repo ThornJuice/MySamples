@@ -3,7 +3,7 @@ package com.hzy.greendao;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 
-@Entity()
+@Entity(nameInDb = "tb_city",createInDb = false)
 public class City {
     private Integer cityid;
     private String cityname;
@@ -68,4 +68,5 @@ public class City {
     public void setCitycode(String citycode) {
         this.citycode = citycode;
     }
+
 }

@@ -15,7 +15,7 @@ class MineFragment : BaseFragment() {
     override fun initView(view: View) {
     }
 
-    override fun lazyLoad() {
+    override fun initData() {
     }
 
 }

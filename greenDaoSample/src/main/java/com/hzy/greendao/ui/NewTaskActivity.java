@@ -7,20 +7,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.hzy.greendao.App;
+import com.hzy.greendao.Constant;
 import com.hzy.greendao.R;
 import com.hzy.greendao.Task;
-import com.hzy.greendao.db.DbHelperUtil;
-import com.hzy.greendao.db.TaskHelper;
+import com.hzy.greendao.db.DbHelper;
+import com.hzy.greendao.greendao.TaskDao;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 public class NewTaskActivity extends AppCompatActivity {
-    TaskHelper taskHelper;
     EditText edtTaskName;
     EditText edtTaskContent;
-
+    TaskDao taskDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +48,11 @@ public class NewTaskActivity extends AppCompatActivity {
     private void tempSave() {
         String name = edtTaskName.getText().toString().trim();
         String content = edtTaskContent.getText().toString().trim();
-        taskHelper = DbHelperUtil.getTaskHelper();
+        taskDao =  DbHelper.getInstance(Constant.DB_TASK).getDaoSession().getTaskDao();
         Task task = new Task();
         task.setTaskName(name);
         task.setTaskContent(content);
-        taskHelper.save(task);
+        taskDao.save(task);
     }
 
     private void initView() {

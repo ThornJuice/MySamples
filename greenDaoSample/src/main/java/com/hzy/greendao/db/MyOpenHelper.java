@@ -47,7 +47,10 @@ import android.content.Context;
 import android.util.Log;
 
 
+import com.github.yuweiguocn.library.greendao.MigrationHelper;
+import com.hzy.greendao.greendao.CityDao;
 import com.hzy.greendao.greendao.DaoMaster;
+import com.hzy.greendao.greendao.TaskDao;
 
 import org.greenrobot.greendao.database.Database;
 
@@ -64,20 +67,20 @@ public class MyOpenHelper extends DaoMaster.OpenHelper {
     @Override
     public void onUpgrade(Database db, int oldVersion, int newVersion) {
         Log.e("MyOpenHelper","db version update from " + oldVersion + " to " + newVersion);
+        MigrationHelper.migrate(db, new MigrationHelper.ReCreateAllTableListener() {
+            @Override
+            public void onCreateAllTables(Database db, boolean ifNotExists) {
+                DaoMaster.createAllTables(db, true);
+            }
 
-      /*  switch (oldVersion) {
-            case 1:
+            @Override
+            public void onDropAllTables(Database db, boolean ifExists) {
+                DaoMaster.dropAllTables(db, true);
+            }
 
-                //不能先删除表，否则数据都木了
-//                StudentDao.dropTable(db, true);
+        }, TaskDao.class);
 
-                //StudentDao.createTable(db, true);
-                TaskDao.createTable(db,true);
-                // 加入新字段 score
-                //db.execSQL("ALTER TABLE 'STUDENT' ADD 'SCORE' TEXT;");
 
-                break;
-        }*/
 
     }
 }

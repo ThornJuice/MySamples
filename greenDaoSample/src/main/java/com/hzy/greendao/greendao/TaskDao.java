@@ -27,6 +27,7 @@ public class TaskDao extends AbstractDao<Task, Long> {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property TaskName = new Property(1, String.class, "taskName", false, "TASK_NAME");
         public final static Property TaskContent = new Property(2, String.class, "taskContent", false, "TASK_CONTENT");
+        public final static Property Time = new Property(3, String.class, "time", false, "TIME");
     }
 
 
@@ -44,7 +45,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"TASK\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"TASK_NAME\" TEXT," + // 1: taskName
-                "\"TASK_CONTENT\" TEXT);"); // 2: taskContent
+                "\"TASK_CONTENT\" TEXT," + // 2: taskContent
+                "\"TIME\" TEXT);"); // 3: time
     }
 
     /** Drops the underlying database table. */
@@ -71,6 +73,11 @@ public class TaskDao extends AbstractDao<Task, Long> {
         if (taskContent != null) {
             stmt.bindString(3, taskContent);
         }
+ 
+        String time = entity.getTime();
+        if (time != null) {
+            stmt.bindString(4, time);
+        }
     }
 
     @Override
@@ -91,6 +98,11 @@ public class TaskDao extends AbstractDao<Task, Long> {
         if (taskContent != null) {
             stmt.bindString(3, taskContent);
         }
+ 
+        String time = entity.getTime();
+        if (time != null) {
+            stmt.bindString(4, time);
+        }
     }
 
     @Override
@@ -103,7 +115,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
         Task entity = new Task( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1), // taskName
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2) // taskContent
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // taskContent
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3) // time
         );
         return entity;
     }
@@ -113,6 +126,7 @@ public class TaskDao extends AbstractDao<Task, Long> {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setTaskName(cursor.isNull(offset + 1) ? null : cursor.getString(offset + 1));
         entity.setTaskContent(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setTime(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
      }
     
     @Override

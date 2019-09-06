@@ -5,8 +5,6 @@ import android.content.Context;
 import android.util.Log;
 
 
-import com.hzy.greendao.db.DbCore;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -29,22 +27,16 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         appContext = getApplicationContext();
-        //初始化数据库
-        //DbCore.init(this);
-        DbCore.init(this,"city.db");
-        DbCore.enableQueryBuilderLog(); //开启调试 log
         SQLiteStudioService.instance().start(this);
         copyDBToDatabases();
     }
     /**
      * assets目录下的db转移到databases
      */
-    private static final String DB_NAME ="city.db";
-    private static final String DB_PATH = "/data/data/com.hzy.greendao/databases/";
     public void copyDBToDatabases() {
         try {
-            String outFileName = DB_PATH + DB_NAME;
-            File file = new File(DB_PATH);
+            String outFileName = Constant.DB_PATH + Constant.DB_CITY;
+            File file = new File(Constant.DB_PATH);
             if (!file.mkdirs()) {
                 file.mkdirs();
             }
@@ -53,7 +45,7 @@ public class App extends Application {
                 dataFile.delete();
             }
             InputStream myInput;
-            myInput = App.getAppContext().getAssets().open(DB_NAME);
+            myInput = getAssets().open(Constant.DB_CITY);
             OutputStream myOutput = new FileOutputStream(outFileName);
             byte[] buffer = new byte[1024];
             int length;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2D82FF</color>
+    <color name="colorPrimaryDark">#2D82FF</color><!--默认状态栏颜色-->
+    <color name="colorAccent">#2D82FF</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="black333">#333333</color>
+    <color name="black666">#666666</color>
+    <color name="black999">#999999</color>
+    <color name="blue_theme">#2D82FF</color>
+    <color name="red_text">#FF6A70</color>
+    <color name="pressed">#F4F4F4</color>
+</resources>

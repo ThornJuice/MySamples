@@ -11,11 +11,13 @@ public class Task {
     Long id;
     String taskName;//任务名称
     String taskContent; //任务描述
-    @Generated(hash = 1408159634)
-    public Task(Long id, String taskName, String taskContent) {
+    String time;
+    @Generated(hash = 619408533)
+    public Task(Long id, String taskName, String taskContent, String time) {
         this.id = id;
         this.taskName = taskName;
         this.taskContent = taskContent;
+        this.time = time;
     }
     @Generated(hash = 733837707)
     public Task() {
@@ -37,5 +39,11 @@ public class Task {
     }
     public void setTaskContent(String taskContent) {
         this.taskContent = taskContent;
+    }
+    public String getTime() {
+        return this.time;
+    }
+    public void setTime(String time) {
+        this.time = time;
     }
 }

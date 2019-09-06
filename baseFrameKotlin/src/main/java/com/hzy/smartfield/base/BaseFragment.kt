@@ -15,34 +15,18 @@ import org.greenrobot.eventbus.EventBus
 abstract class BaseFragment : Fragment() {
 
     /**
-     * 视图是否加载完毕
-     */
-    private var isViewPrepare = false
-    /**
-     * 数据是否加载过了
-     */
-    private var hasLoadData = false
-
-    /**
      * 加载布局
      */
     @LayoutRes
     abstract fun attachLayoutRes(): Int
-
-    /**
-     * 初始化数据
-     */
-    open fun initData() {}
-
     /**
      * 初始化 View
      */
     abstract fun initView(view: View)
-
     /**
-     * 懒加载
+     * 初始化数据
      */
-    abstract fun lazyLoad()
+    abstract fun initData()
 
     /**
      * 是否使用 EventBus
@@ -60,31 +44,14 @@ abstract class BaseFragment : Fragment() {
         return inflater.inflate(attachLayoutRes(), null)
     }
 
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        if (isVisibleToUser) {
-            lazyLoadDataIfPrepared()
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         if (useEventBus()) {
             EventBus.getDefault().register(this)
         }
-        isViewPrepare = true
         initView(view)
         initData()
-        lazyLoadDataIfPrepared()
-    }
-
-
-    private fun lazyLoadDataIfPrepared() {
-        if (userVisibleHint && isViewPrepare && !hasLoadData) {
-            lazyLoad()
-            hasLoadData = true
-        }
     }
 
     override fun onDestroy() {
