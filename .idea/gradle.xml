@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/baseFrameKotlin" />
+            <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/borderLayout" />
             <option value="$PROJECT_DIR$/customProgressBar" />
             <option value="$PROJECT_DIR$/greenDaoSample" />

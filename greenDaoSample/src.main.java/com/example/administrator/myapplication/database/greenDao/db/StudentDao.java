@@ -1,4 +1,4 @@
-package com.example.administrator.myapplication.database.greenDao.db;
+package com.hzy.sample.greendao.database.greenDao.db;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteStatement;

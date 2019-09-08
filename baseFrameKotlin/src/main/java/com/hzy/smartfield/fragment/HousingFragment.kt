@@ -11,12 +11,14 @@ import com.hzy.smartfield.base.BaseFragment
  */
 
 class HousingFragment : BaseFragment() {
+    override fun initData() {
+    }
+
     override fun attachLayoutRes(): Int = R.layout.fragment_housing
 
     override fun initView(view: View) {
     }
 
-    override fun lazyLoad() {
-    }
+
 
 }

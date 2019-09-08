@@ -5,23 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/white"
-    tools:context=".fragment.BlankFragment1">
-
-    <Button
-        android:id="@+id/btn_query"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="草稿" />
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swpRefresh"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+    tools:context="com.hzy.greendao.fragment.BlankFragment1">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
-    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
