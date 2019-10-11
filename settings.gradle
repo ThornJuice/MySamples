@@ -1,1 +1,1 @@
-include ':greenDaoSample', ':customProgressBar', ':borderLayout', ':notifySample', ':retrofit2sample', ':mvpsample', ':baseFrameKotlin', ':baselibrary'
+include ':greenDaoSample', ':customProgressBar', ':borderLayout', ':notifySample', ':retrofit2sample', ':mvpsample', ':baseFrameKotlin', ':baselibrary', ':testaucsample'

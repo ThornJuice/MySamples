@@ -9,8 +9,10 @@ import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.cookie.CookieJarImpl;
 import com.lzy.okgo.cookie.store.SPCookieStore;
+import com.lzy.okgo.interceptor.HttpLoggingInterceptor;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
 
@@ -43,6 +45,11 @@ public class App extends MultiDexApplication {
         //HttpHeaders headers = new HttpHeaders();
         try {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            //log相关配置
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("OkGo");
+            loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);        //log打印级别，决定了log显示的详细程度
+            loggingInterceptor.setColorLevel(Level.INFO);                               //log颜色级别，决定了log在控制台显示的颜色
+            builder.addInterceptor(loggingInterceptor);//添加OkGo默认debug日志
             //全局的读取超时时间  基于前面的通道建立完成后，客户端终于可以向服务端发送数据了
             builder.readTimeout(10000, TimeUnit.MILLISECONDS);
             //全局的写入超时时间  服务器发回消息，可是客户端出问题接受不到了

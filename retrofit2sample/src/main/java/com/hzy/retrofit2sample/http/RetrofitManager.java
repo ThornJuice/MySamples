@@ -1,9 +1,11 @@
 package com.hzy.retrofit2sample.http;
 
+import com.hzy.retrofit2sample.http.interceptor.HttpLoggingInterceptor;
 import com.hzy.retrofit2sample.http.interceptor.LoggingInterceptor;
 import com.hzy.retrofit2sample.http.interceptor.RewriteCacheControlInterceptor;
 
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -17,7 +19,7 @@ public class RetrofitManager {
     private LoggingInterceptor mLoggingInterceptor;
     private RetrofitService mService;
     private static RetrofitManager instance;
-
+    private HttpLoggingInterceptor loggingInterceptor;
     /**
      * 配置OKHttpClient
      *
@@ -33,9 +35,9 @@ public class RetrofitManager {
                     //Cache cache = new Cache(file, 1024 * 1024 * 10);
                     mOkHttpClient = new OkHttpClient.Builder()
                             //.cache(cache)
-                            .addNetworkInterceptor(mLoggingInterceptor)
+                            //.addInterceptor(loggingInterceptor)
                             //.addInterceptor(mRewriteCacheControlInterceptor)
-                           // .addInterceptor(mLoggingInterceptor)
+                            .addInterceptor(mLoggingInterceptor)
                             .retryOnConnectionFailure(true)
                             .connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
                             .build();
@@ -48,6 +50,9 @@ public class RetrofitManager {
     private RetrofitManager() {
         mRewriteCacheControlInterceptor = RewriteCacheControlInterceptor.getInstance();
         mLoggingInterceptor = LoggingInterceptor.getInstance();
+        loggingInterceptor = new HttpLoggingInterceptor("OkGo");
+        loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);        //log打印级别，决定了log显示的详细程度
+        loggingInterceptor.setColorLevel(Level.INFO);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RetrofitService.BASE_URL)
                 .client(getOkHttpClient())

@@ -42,7 +42,7 @@ public class LoggingInterceptor implements Interceptor {
 
         final Response response = chain.proceed(request);
 
-        XLog.e("请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
+        XLog.v("请求网址: \n" + request.url() + " \n " + "请求头部信息：\n" + request.headers() + "响应头部信息：\n" + response.headers());
 
         final ResponseBody responseBody = response.body();
         final long contentLength = responseBody.contentLength();
@@ -57,15 +57,15 @@ public class LoggingInterceptor implements Interceptor {
             try {
                 charset = contentType.charset(charset);
             } catch (UnsupportedCharsetException e) {
-                XLog.e("Couldn't decode the response body; charset is likely malformed.");
+                XLog.v("Couldn't decode the response body; charset is likely malformed.");
                 return response;
             }
         }
 
         if (contentLength != 0) {
-            XLog.e("--------------------------------------------开始打印返回数据----------------------------------------------------");
-            XLog.e(buffer.clone().readString(charset));
-            XLog.e("--------------------------------------------结束打印返回数据----------------------------------------------------");
+            XLog.v("--------------------------------------------开始打印返回数据----------------------------------------------------");
+            XLog.v(buffer.clone().readString(charset));
+            XLog.v("--------------------------------------------结束打印返回数据----------------------------------------------------");
 
         }
         return response;

@@ -1,23 +1,16 @@
 package com.hzy.mvpsample;
 
 
-
-import android.view.View;
 import android.support.v4.app.Fragment;
+import android.view.View;
+
 import com.example.mvpsample.R;
 import com.ju.baselibrary.base.BaseFragment;
-import com.ju.baselibrary.base.BaseLazyFragment;
-import com.ju.baselibrary.http.BaseBean;
-import com.ju.baselibrary.http.HttpObjectCallBack;
-import com.ju.baselibrary.http.HttpStringCallBack;
-import com.ju.baselibrary.http.OkGoRequest;
 import com.ju.baselibrary.utils.ToastUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/border_15">
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/t5" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/text_black"
+            android:layout_marginTop="@dimen/border_5"
+            android:text="红木家具" />
+
+        <TextView
+            android:layout_marginTop="@dimen/border_4"
+            android:id="@+id/tv_goods_price"
+            style="@style/text_red" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/border_10">
+
+
+        <ImageView
+            android:id="@+id/iv_image2"
+            android:layout_width="@dimen/border_90"
+            android:layout_height="@dimen/border_90"
+            android:layout_margin="@dimen/border_10"
+            android:src="@mipmap/t5"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title2"
+                style="@style/text_black"
+                android:text="xxx" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/border_15"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tv_price2"
+                    style="@style/text_red"
+                    android:text="xx" />
+
+                <TextView
+                    android:id="@+id/tv_sold2"
+                    style="@style/text_black"
+                    android:layout_marginLeft="@dimen/border_20"
+                    android:text="xx" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

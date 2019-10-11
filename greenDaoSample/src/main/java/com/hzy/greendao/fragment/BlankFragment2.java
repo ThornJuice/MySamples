@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.hzy.greendao.App;
 import com.hzy.greendao.Constant;
 import com.hzy.greendao.R;
 import com.hzy.greendao.db.DbHelper;
@@ -31,7 +32,6 @@ public class BlankFragment2 extends Fragment {
             }
         });
 
-       // cityDao = DbCore.getDaoSession(App.getAppContext(), Constant.DB_CITY).getCityDao();
         cityDao = DbHelper.getInstance(Constant.DB_CITY).getDaoSession().getCityDao();
         view.findViewById(R.id.btn_local).setOnClickListener(new View.OnClickListener() {
             @Override

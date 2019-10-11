@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/border_10">
+
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="@dimen/border_90"
+        android:layout_height="@dimen/border_90"
+        android:layout_margin="@dimen/border_10"
+        android:src="@mipmap/t5"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/text_black"
+            android:text="xxxxxxxxxx" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/border_15"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_price"
+                style="@style/text_red"
+                android:text="xxxxxxxxxx" />
+
+            <TextView
+                android:id="@+id/tv_sold"
+                style="@style/text_black"
+                android:layout_marginLeft="@dimen/border_20"
+                android:text="xxxxxxxxxx" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

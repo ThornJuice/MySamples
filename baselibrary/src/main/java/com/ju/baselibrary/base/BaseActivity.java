@@ -1,5 +1,6 @@
 package com.ju.baselibrary.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -10,9 +11,11 @@ import com.ju.baselibrary.R;
 import com.ju.baselibrary.utils.StatusBarUtil;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    protected Context mContext;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         setContentView(R.layout.activity_base);
         setStatusBar();
         FrameLayout base_container = findViewById(R.id.fl_container);
