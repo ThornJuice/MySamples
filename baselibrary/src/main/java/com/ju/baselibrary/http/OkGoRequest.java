@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.alibaba.fastjson.JSON;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.HttpHeaders;
@@ -11,8 +12,12 @@ import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 public class OkGoRequest {
     public static OkGoRequest okGoRequest;
@@ -271,6 +276,64 @@ public class OkGoRequest {
             });
         } catch (Exception e) {
             mCallBack.onFailure(0, "" + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    private  String body;
+    public void doPostWithBody(@NonNull final HttpStringCallBack mCallBack) {
+        try {
+            if (params == null) {
+                params = new HttpParams();
+            }
+            if (headers == null) {
+                headers = new HttpHeaders();
+            }
+            if (params != null) {
+                Map<String, Object> map = new HashMap();
+                for (Map.Entry entry : params.urlParamsMap.entrySet()) {
+                    try {
+                        if (entry.getValue() instanceof List) {
+                            map.put(entry.getKey().toString(), ((List) entry.getValue()).get(0));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                body = JSON.toJSONString(map);
+            } else {
+                body = "";
+            }
+            // headers.put("Cookie", aCache.getAsString("cookie"));
+            headers.put("platform", "caseManager");
+            OkGo.<String>post(url).tag(context)
+//                    .cacheKey(url + params.toString())
+
+                    .upRequestBody(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), body))
+                    .params(params).headers(headers).execute(new StringCallback() {
+                @Override
+                public void onSuccess(Response<String> response) {
+                    String body = response.body();
+                    if (mCallBack != null)
+                        mCallBack.onSuccess(body);
+                }
+
+                @Override
+                public void onCacheSuccess(Response<String> response) {
+                    super.onCacheSuccess(response);
+                    String body = response.body();
+                    if (mCallBack != null)
+                        mCallBack.onSuccess(body);
+                }
+
+                @Override
+                public void onError(Response<String> response) {
+                    super.onError(response);
+                    if (mCallBack != null)
+                        mCallBack.onFailure(response.code(), "" + response.message());
+                }
+            });
+        } catch (Exception e) {
+            mCallBack.onFailure(0, e.getMessage());
             e.printStackTrace();
         }
     }

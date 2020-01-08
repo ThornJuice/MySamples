@@ -52,19 +52,19 @@
     </style>
     <!-- 常用布局 LinearLayout -->
     <style name="item_LinearLayout">
-        <item name="android:paddingLeft">@dimen/border_15</item>
-        <item name="android:paddingRight">@dimen/border_15</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/border_50</item>
+        <item name="android:layout_height">50dp</item>
         <item name="android:background">@drawable/selecter_pressed</item>
         <item name="android:gravity">center_vertical</item>
     </style>
     <!-- 常用布局 LinearLayout 2 -->
     <style name="item_ll_whith_out_action">
-        <item name="android:paddingLeft">@dimen/border_15</item>
-        <item name="android:paddingRight">@dimen/border_15</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/border_40</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:background">@color/white</item>
         <item name="android:gravity">center_vertical</item>
     </style>

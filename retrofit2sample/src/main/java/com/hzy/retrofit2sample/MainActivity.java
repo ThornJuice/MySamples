@@ -1,5 +1,8 @@
 package com.hzy.retrofit2sample;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,7 +27,7 @@ public class MainActivity extends BaseActivity {
     Button getWeather;
     @BindView(R.id.tv_Weather)
     TextView tv_Weather;
-
+    ProgressDialog pd;
 
     @Override
     public void init() {
@@ -39,6 +42,18 @@ public class MainActivity extends BaseActivity {
     void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.getWeather:
+                 pd = new ProgressDialog(this);
+                pd.setCanceledOnTouchOutside(false);
+                pd.setOnCancelListener(new DialogInterface.OnCancelListener() {
+
+                    @Override
+                    public void onCancel(DialogInterface dialog) {
+                        Log.e("DialogInterface","dismiss");
+                    }
+                });
+
+                pd.setMessage("loading");
+                pd.show();
                 getWeather();
                 break;
         }
@@ -64,6 +79,7 @@ public class MainActivity extends BaseActivity {
                     public void onNext(WeatherInfo weatherInfo) {
                         XLog.e("onNext");
                         tv_Weather.setText(weatherInfo.toString());
+                        pd.cancel();
                     }
 
                 });

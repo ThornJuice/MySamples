@@ -17,6 +17,7 @@
             <option value="$PROJECT_DIR$/notifySample" />
             <option value="$PROJECT_DIR$/retrofit2sample" />
             <option value="$PROJECT_DIR$/testaucsample" />
+            <option value="$PROJECT_DIR$/wan" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

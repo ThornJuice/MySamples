@@ -2,6 +2,8 @@ package com.ju.baselibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -9,37 +11,61 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ju.baselibrary.R;
+import com.ju.baselibrary.base.App;
 
 
 public class ToastUtil {
-    private static Toast toast;
-
-    public static void showToast(Context context, String toastStr) {
+    public static void showToast(Context context, @NonNull String toastStr) {
         try {
-            if (toast == null) {
-                toast = new Toast(context);
-            }
+            Toast toast = new Toast(context);
             toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             LinearLayout toastLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.toast_view, null);
             TextView txtToast = (TextView) toastLayout.findViewById(R.id.txt_toast);
-            txtToast.setText(toastStr);
+            txtToast.setText(toastStr + "");
             toast.setView(toastLayout);
-        } catch (Exception e) {
-
-        }
-        try {
             toast.show();
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
+
     }
 
-    public static void showToast(Activity activity, String toastStr) {
+    public static void showToast(String toastStr) {
         try {
-            if (toast == null) {
-                toast = new Toast(activity);
-            }
+            Toast toast = new Toast(App.getAppInsatnce());
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            LinearLayout toastLayout = (LinearLayout) LayoutInflater.from(App.getAppInsatnce()).inflate(R.layout.toast_view, null);
+            TextView txtToast = (TextView) toastLayout.findViewById(R.id.txt_toast);
+            txtToast.setText(toastStr + "");
+            toast.setView(toastLayout);
+            toast.show();
+        } catch (Exception e) {
+
+        }
+
+    }
+
+    public static void showToast(Activity activity, @NonNull String toastStr) {
+        try {
+            Toast toast = new Toast(activity);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            LayoutInflater inflater = activity.getLayoutInflater();
+            LinearLayout toastLayout = (LinearLayout) inflater.inflate(R.layout.toast_view, null);
+            TextView txtToast = (TextView) toastLayout.findViewById(R.id.txt_toast);
+            txtToast.setText(toastStr + "");
+            toast.setView(toastLayout);
+            toast.show();
+        } catch (Exception e) {
+        }
+
+    }
+
+    public static void myToast(Activity activity, @StringRes int toastStr) {
+        try {
+            Toast toast = new Toast(activity);
             toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             LayoutInflater inflater = activity.getLayoutInflater();
@@ -47,12 +73,10 @@ public class ToastUtil {
             TextView txtToast = (TextView) toastLayout.findViewById(R.id.txt_toast);
             txtToast.setText(toastStr);
             toast.setView(toastLayout);
+            toast.show();
         } catch (Exception e) {
 
         }
-        try {
-            toast.show();
-        } catch (Exception e) { }
     }
 
 

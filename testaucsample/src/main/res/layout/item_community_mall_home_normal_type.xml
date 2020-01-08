@@ -4,14 +4,14 @@
     android:layout_height="120dp"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="@dimen/border_10">
+    android:padding="10dp">
 
 
     <ImageView
         android:id="@+id/iv_image"
-        android:layout_width="@dimen/border_90"
-        android:layout_height="@dimen/border_90"
-        android:layout_margin="@dimen/border_10"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_margin="10dp"
         android:src="@mipmap/t5"
         android:scaleType="centerCrop" />
 
@@ -29,7 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/border_15"
+            android:layout_marginTop="15dp"
             android:gravity="center_vertical">
 
             <TextView
@@ -40,7 +40,7 @@
             <TextView
                 android:id="@+id/tv_sold"
                 style="@style/text_black"
-                android:layout_marginLeft="@dimen/border_20"
+                android:layout_marginLeft="20dp"
                 android:text="xxxxxxxxxx" />
         </LinearLayout>
     </LinearLayout>

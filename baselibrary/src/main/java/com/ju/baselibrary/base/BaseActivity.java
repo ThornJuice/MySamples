@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.ju.baselibrary.R;
 import com.ju.baselibrary.utils.StatusBarUtil;
+import com.ju.baselibrary.widget.BaseTitleBar;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    BaseTitleBar baseTitleBar;
     protected Context mContext;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setStatusBar();
         FrameLayout base_container = findViewById(R.id.fl_container);
         base_container.addView(getLayoutInflater().inflate(getLayoutId(), null));
-        init();
+        initTitleBar();
         initView();
         initData();
     }
@@ -29,7 +32,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     @LayoutRes
     protected abstract int  getLayoutId();
-    protected abstract void init();
     protected abstract void initView();
     protected abstract void initData();
     /**
@@ -42,5 +44,14 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
+    }
+    private void initTitleBar(){
+        baseTitleBar = findViewById(R.id.title_bar);
+        baseTitleBar.setLeftLayoutClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

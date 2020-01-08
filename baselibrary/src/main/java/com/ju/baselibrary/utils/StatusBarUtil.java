@@ -30,7 +30,7 @@ public class StatusBarUtil {
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                 //设置状态栏颜色
-                window.setStatusBarColor(ContextCompat.getColor(activity, android.R.color.transparent));
+                window.setStatusBarColor(ContextCompat.getColor(activity, R.color.blue_theme));
                 //设置导航栏透明
                 window.setNavigationBarColor(ContextCompat.getColor(activity, android.R.color.transparent));
                 //修改状态栏文字颜色为黑色
@@ -50,14 +50,14 @@ public class StatusBarUtil {
                 Window window = activity.getWindow();
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-                ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+                ViewGroup contentView = activity.findViewById(android.R.id.content);
                 View childAt = contentView.getChildAt(0);
                 if (childAt != null) {
                     childAt.setFitsSystemWindows(true);
                 }
                 View view = new View(activity);
                 view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getStatusBarHeight(activity)));
-                view.setBackgroundColor(ContextCompat.getColor(activity,  android.R.color.transparent));
+                view.setBackgroundColor(ContextCompat.getColor(activity,  R.color.blue_theme));
                 contentView.addView(view);
             } catch (Exception e) {
                 e.printStackTrace();

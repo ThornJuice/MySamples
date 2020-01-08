@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#2D82FF</color><!--默认状态栏颜色-->
     <color name="colorAccent">#2D82FF</color>
     <color name="white">#ffffff</color>
+    <color name="white7f">#7fffffff</color>
     <color name="black">#000000</color>
     <color name="black333">#333333</color>
     <color name="black666">#666666</color>
