@@ -3,13 +3,13 @@ package com.hzy.greendao.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.hzy.greendao.App;
+import androidx.fragment.app.Fragment;
+
 import com.hzy.greendao.Constant;
 import com.hzy.greendao.R;
 import com.hzy.greendao.db.DbHelper;

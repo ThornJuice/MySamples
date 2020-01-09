@@ -1,9 +1,10 @@
 package com.hzy.borderlayout;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +48,8 @@ public class MyTableViewAdapter extends RecyclerView.Adapter<MyTableViewAdapter.
     public void onBindViewHolder(final TableViewHolder holder, int position) {
         RecyclerView mLockRecyclerView = holder.mLockRecyclerView;
         RecyclerView mMainRecyclerView = holder.mMainRecyclerView;
-        mLockRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-        mMainRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+        mLockRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false));
+        mMainRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, RecyclerView.VERTICAL, false));
         //mLockRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         //mMainRecyclerView.addItemDecoration(new DividerItemDecoration(mContext, DividerItemDecoration.VERTICAL));
         mLockRecyclerView.setAdapter(new LeftColumnAdapter(mContext, mLockColumnDatas));

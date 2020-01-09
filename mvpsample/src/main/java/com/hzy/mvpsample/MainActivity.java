@@ -1,8 +1,10 @@
 package com.hzy.mvpsample;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 
+
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.mvpsample.R;
 import com.ju.baselibrary.base.BaseActivity;
@@ -16,10 +18,7 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-    @Override
-    protected void init() {
 
-    }
 
     @Override
     protected void initView() {

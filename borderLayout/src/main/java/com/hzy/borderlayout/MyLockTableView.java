@@ -1,9 +1,10 @@
 package com.hzy.borderlayout;
 
 import android.content.Context;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -156,7 +157,7 @@ public class MyLockTableView {
         //表格主视图
         mTableScrollView = (RecyclerView) mTableView.findViewById(R.id.table_scrollView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
         mTableScrollView.setLayoutManager(layoutManager);
         mMyTableViewAdapter = new MyTableViewAdapter(mContext, mTableColumnDatas, mTableRowDatas);
         //将滑动视图添加到mScrollViews

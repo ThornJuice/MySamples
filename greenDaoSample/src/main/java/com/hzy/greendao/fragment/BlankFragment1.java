@@ -2,13 +2,15 @@ package com.hzy.greendao.fragment;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.hzy.greendao.Constant;
 import com.hzy.greendao.R;
@@ -48,7 +50,7 @@ public class BlankFragment1 extends Fragment {
         List<Task> taskList = taskDao.loadAll();
 
         adapter =new TaskListAdapter(getActivity(),taskList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         recyclerView.setAdapter(adapter);
 
         resultBeanDao = DbHelper.getInstance(Constant.DB_TASK).getDaoSession().getResultBeanDao();
@@ -61,7 +63,7 @@ public class BlankFragment1 extends Fragment {
             taskDao =  DbHelper.getInstance(Constant.DB_TASK).getDaoSession().getTaskDao();
             List<Task> taskList = taskDao.loadAll();
             adapter =new TaskListAdapter(getActivity(),taskList);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
             recyclerView.setAdapter(adapter);
         }
     }

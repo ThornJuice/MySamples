@@ -54,4 +54,7 @@ public final class XLog {
         if (isDebug)
             Log.i(tag, msg);
     }
+    public static void printStackTrace(Throwable t) {
+        if (isDebug && t != null) t.printStackTrace();
+    }
 }

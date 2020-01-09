@@ -2,8 +2,9 @@ package com.hzy.smartfield.base
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.support.annotation.LayoutRes
-import android.support.v7.app.AppCompatActivity
+
+import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
 import com.hzy.smartfield.R
 import com.hzy.smartfield.utils.StatusBarUtil
 import com.tbruyelle.rxpermissions2.RxPermissions

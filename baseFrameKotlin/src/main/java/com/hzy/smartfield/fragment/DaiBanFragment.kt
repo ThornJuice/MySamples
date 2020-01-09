@@ -7,11 +7,8 @@ import com.hzy.smartfield.base.BaseFragment
 import com.hzy.smartfield.base.showToast
 import com.hzy.smartfield.http.BaseBean
 import com.hzy.smartfield.http.HttpObjectCallBack
-import com.hzy.smartfield.http.HttpStringCallBack
 import com.hzy.smartfield.http.OkGoRequest
-import com.hzy.smartfield.utils.ToastUtil
 import kotlinx.android.synthetic.main.base_title_bar.*
-import java.util.*
 
 /**
  * 待办

@@ -1,12 +1,12 @@
 package com.hzy.smartfield
 
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
+
 import android.view.View
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.hzy.smartfield.base.BaseActivity
-import com.hzy.smartfield.base.showToast
 import com.hzy.smartfield.fragment.CustomerFragment
 import com.hzy.smartfield.fragment.DaiBanFragment
 import com.hzy.smartfield.fragment.HousingFragment
@@ -52,12 +52,12 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         transaction = fragmentManager!!.beginTransaction()
         if (daiBanFragment == null) {
             daiBanFragment = DaiBanFragment()
-            transaction!!.add(R.id.container, daiBanFragment)
+            transaction!!.add(R.id.container, daiBanFragment!!)
         }
         //隐藏所有fragment
         hideFragment(transaction!!)
         //显示待办fragment
-        transaction!!.show(daiBanFragment)
+        transaction!!.show(daiBanFragment!!)
         transaction!!.commit()
     }
 
@@ -65,12 +65,12 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         transaction = fragmentManager!!.beginTransaction()
         if (customerFragment == null) {
             customerFragment = CustomerFragment()
-            transaction!!.add(R.id.container, customerFragment)
+            transaction!!.add(R.id.container, customerFragment!!)
         }
         //隐藏所有fragment
         hideFragment(transaction!!)
         //显示客户fragment
-        transaction!!.show(customerFragment)
+        transaction!!.show(customerFragment!!)
         transaction!!.commit()
     }
 
@@ -78,12 +78,12 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         transaction = fragmentManager!!.beginTransaction()
         if (housingFragment == null) {
             housingFragment = HousingFragment()
-            transaction!!.add(R.id.container, housingFragment)
+            transaction!!.add(R.id.container, housingFragment!!)
         }
         //隐藏所有fragment
         hideFragment(transaction!!)
         //显示房源fragment
-        transaction!!.show(housingFragment)
+        transaction!!.show(housingFragment!!)
         transaction!!.commit()
     }
 
@@ -91,28 +91,28 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         transaction = fragmentManager!!.beginTransaction()
         if (mineFragment == null) {
             mineFragment = MineFragment()
-            transaction!!.add(R.id.container, mineFragment)
+            transaction!!.add(R.id.container, mineFragment!!)
         }
         //隐藏所有fragment
         hideFragment(transaction!!)
         //显示我的fragment
-        transaction!!.show(mineFragment)
+        transaction!!.show(mineFragment!!)
         transaction!!.commit()
     }
 
     //隐藏所有的fragment
     private fun hideFragment(transaction: FragmentTransaction) {
         if (daiBanFragment != null) {
-            transaction.hide(daiBanFragment)
+            transaction.hide(daiBanFragment!!)
         }
         if (customerFragment != null) {
-            transaction.hide(customerFragment)
+            transaction.hide(customerFragment!!)
         }
         if (housingFragment != null) {
-            transaction.hide(housingFragment)
+            transaction.hide(housingFragment!!)
         }
         if (mineFragment != null) {
-            transaction.hide(mineFragment)
+            transaction.hide(mineFragment!!)
         }
     }
 

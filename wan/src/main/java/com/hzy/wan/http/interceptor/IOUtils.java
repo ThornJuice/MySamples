@@ -1,8 +1,11 @@
-package com.hzy.retrofit2sample.util;
+package com.hzy.wan.http.interceptor;
 
 import android.os.Build;
 import android.os.StatFs;
 import android.text.TextUtils;
+
+
+import com.ju.baselibrary.utils.XLog;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

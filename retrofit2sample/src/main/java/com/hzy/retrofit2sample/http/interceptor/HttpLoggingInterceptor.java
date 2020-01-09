@@ -1,6 +1,5 @@
 package com.hzy.retrofit2sample.http.interceptor;
 
-import com.hzy.retrofit2sample.util.IOUtils;
 import com.hzy.retrofit2sample.util.XLog;
 
 import java.io.IOException;

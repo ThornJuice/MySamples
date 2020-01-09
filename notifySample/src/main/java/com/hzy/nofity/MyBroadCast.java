@@ -1,6 +1,5 @@
 package com.hzy.nofity;
 
-import android.app.Application;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;

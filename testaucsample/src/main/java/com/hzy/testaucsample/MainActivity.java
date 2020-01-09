@@ -1,10 +1,15 @@
 package com.hzy.testaucsample;
 
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
+
+import android.annotation.SuppressLint;
 import android.view.View;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.LoadMoreView;
 import com.ju.baselibrary.base.BaseActivity;
 
 import java.util.ArrayList;
@@ -24,12 +29,7 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-    @Override
-    protected void init() {
-        String content="appid=111&mch_id=111&key=111";
-        String key="111";
 
-    }
     private  String byteArrayToHexString(byte[] b) {
         StringBuilder hs = new StringBuilder();
         String stmp;
@@ -44,12 +44,12 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         recyclerView = findViewById(R.id.recycler_view);
-        LinearLayoutManager manager = new LinearLayoutManager(mContext);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(manager);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         adapter = new CommunityMallHomeAdapter(list);
         adapter.setType(0);
         recyclerView.setAdapter(adapter);
+        adapter.setEnableLoadMore(true);
+
     }
 
     @Override
@@ -66,7 +66,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
                 if (flag) {
                     LinearLayoutManager manager = new LinearLayoutManager(mContext);
-                    manager.setOrientation(LinearLayoutManager.VERTICAL);
+                    manager.setOrientation(RecyclerView.VERTICAL);
                     recyclerView.setLayoutManager(manager);
                     adapter.setType(0);
                     adapter.notifyDataSetChanged();

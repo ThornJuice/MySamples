@@ -1,8 +1,8 @@
 package com.ju.baselibrary.base;
 
 import android.content.Context;
-import android.support.multidex.MultiDex;
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
@@ -35,7 +35,7 @@ public class App extends MultiDexApplication {
         super.onCreate();
         instance = this;
         applicationContext = getApplicationContext();
-        initNetWork();
+        //initNetWork();
     }
     /**
      * 配置全局的网络连接

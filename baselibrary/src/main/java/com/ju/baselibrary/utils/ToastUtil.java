@@ -2,8 +2,8 @@ package com.ju.baselibrary.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -63,7 +63,7 @@ public class ToastUtil {
 
     }
 
-    public static void myToast(Activity activity, @StringRes int toastStr) {
+    public static void showToast(Activity activity, @StringRes int toastStr) {
         try {
             Toast toast = new Toast(activity);
             toast.setDuration(Toast.LENGTH_SHORT);

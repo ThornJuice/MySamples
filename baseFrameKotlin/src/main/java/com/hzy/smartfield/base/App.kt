@@ -2,7 +2,7 @@ package com.hzy.smartfield.base
 
 import android.app.Application
 import android.content.Context
-import android.support.multidex.MultiDex
+import androidx.multidex.MultiDex
 import com.hzy.smartfield.utils.XLog
 import kotlin.properties.Delegates
 

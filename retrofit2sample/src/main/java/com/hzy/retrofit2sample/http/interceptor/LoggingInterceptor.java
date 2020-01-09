@@ -16,7 +16,6 @@ import okio.Buffer;
 import okio.BufferedSource;
 
 /**
- * Created by chenxz on 2017/12/2.
  * 打印返回的json数据拦截器
  */
 

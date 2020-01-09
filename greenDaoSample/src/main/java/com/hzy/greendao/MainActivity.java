@@ -1,14 +1,15 @@
 package com.hzy.greendao;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+
 import android.os.Bundle;
 
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.hzy.greendao.R;
 import com.hzy.greendao.adapter.PagerAdapter;
 import com.hzy.greendao.fragment.BlankFragment1;
 import com.hzy.greendao.fragment.BlankFragment2;

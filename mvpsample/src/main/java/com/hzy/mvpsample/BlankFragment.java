@@ -1,7 +1,6 @@
 package com.hzy.mvpsample;
 
 
-import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.example.mvpsample.R;
@@ -12,9 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class BlankFragment extends BaseFragment {
 
 
