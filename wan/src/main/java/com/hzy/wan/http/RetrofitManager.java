@@ -47,10 +47,10 @@ public class RetrofitManager {
             synchronized (RetrofitManager.class) {
                 if (mOkHttpClient == null) {
                     //指定缓存路径
-                    //XLog.e("----------"+App.getApp().getCacheDir());
+                    //A.e("----------"+App.getApp().getCacheDir());
                     //File file = new File(App.getApp().getCacheDir().getAbsolutePath(), "HttpCache");
                     //Cache cache = new Cache(file, 1024 * 1024 * 10);
-                    loggingInterceptor = new HttpLoggingInterceptor("OkGo");
+                    loggingInterceptor = new HttpLoggingInterceptor("request");
                     loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);        //log打印级别，决定了log显示的详细程度
                     loggingInterceptor.setColorLevel(Level.WARNING);
                     mOkHttpClient = new OkHttpClient.Builder()

@@ -104,7 +104,7 @@ public class BaseTitleBar extends RelativeLayout{
         rightLayout.setVisibility(visibility);
     }
     
-    public void setTitle(String title){
+    public void setPageTitle(String title){
         titleView.setText(title);
     }
     

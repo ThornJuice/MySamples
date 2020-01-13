@@ -4,31 +4,20 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.hzy.retrofit2sample.bean.WeatherInfo;
 import com.hzy.retrofit2sample.http.CustomResourceSubsciber;
 import com.hzy.retrofit2sample.http.RetrofitManager;
 import com.hzy.retrofit2sample.util.RxUtil;
-import com.hzy.retrofit2sample.util.StatusBarUtil;
 import com.hzy.retrofit2sample.util.XLog;
 
 import org.reactivestreams.Subscription;
 
-import butterknife.BindView;
-import butterknife.OnClick;
 import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity {
-   // private Unbinder mUnbinder;
-    @BindView(R.id.getWeather)
-    Button getWeather;
-    @BindView(R.id.tv_Weather)
-    TextView tv_Weather;
     ProgressDialog pd;
-
     @Override
     public void init() {
     }
@@ -38,7 +27,6 @@ public class MainActivity extends BaseActivity {
         return R.layout.activity_main;
     }
 
-    @OnClick({R.id.getWeather})
     void onViewClick(View view) {
         switch (view.getId()) {
             case R.id.getWeather:
@@ -78,7 +66,6 @@ public class MainActivity extends BaseActivity {
                     @Override
                     public void onNext(WeatherInfo weatherInfo) {
                         XLog.e("onNext");
-                        tv_Weather.setText(weatherInfo.toString());
                         pd.cancel();
                     }
 

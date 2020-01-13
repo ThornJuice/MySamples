@@ -68,6 +68,12 @@
         <item name="android:background">@color/white</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+    <!-- line -->
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">@color/line</item>
+    </style>
     <!-- editText -->
     <style name="editText">
         <item name="android:layout_width">wrap_content</item>
