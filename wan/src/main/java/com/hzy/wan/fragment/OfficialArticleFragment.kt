@@ -11,14 +11,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hzy.wan.R
 import com.hzy.wan.activity.WebViewActivity
-import com.hzy.wan.bean.HomeArticleBean
 import com.hzy.wan.bean.OfficialArticleBean
 import com.hzy.wan.jump
-import com.hzy.wan.viewmodel.HomeViewModel
 import com.hzy.wan.viewmodel.OfficialViewModel
-
-import com.ju.baselibrary.base.BaseFragment
-import com.ju.baselibrary.utils.XLog
+import com.ju.baselibrary.base.BaseLazyFragment
 import kotlinx.android.synthetic.main.fragment_official_list.*
 
 
@@ -26,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_official_list.*
  * 公众号文章列表
  *
  */
-class OfficialArticleFragment : BaseFragment() {
+class OfficialArticleFragment : BaseLazyFragment() {
     lateinit var mViewModel: OfficialViewModel
     lateinit var adapter: MyAdapter
     var mList = ArrayList<OfficialArticleBean.DataBean.DatasBean>()
@@ -62,7 +58,7 @@ class OfficialArticleFragment : BaseFragment() {
         }
     }
 
-    override fun initData() {
+    override fun lazyLoad() {
         mViewModel.getArticle(mId, page)
         mViewModel.articleBean.observe(this, Observer {
             swipeRefreshLayout.isRefreshing = false

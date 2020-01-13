@@ -34,7 +34,7 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
                 .addItem(BottomNavigationItem(R.mipmap.icon_nav_02, "公众号"))
                 .addItem(BottomNavigationItem(R.mipmap.icon_nav_03, "体系"))
                 .addItem(BottomNavigationItem(R.mipmap.icon_nav_04, "项目"))
-                .setActiveColor("#2D82FF")
+                .setActiveColor(R.color.theme)
                 .setFirstSelectedPosition(0)
                 .setBarBackgroundColor(R.color.white)
                 .initialise()

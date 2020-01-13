@@ -16,7 +16,7 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabBackground="@color/blue_theme"
+        app:tabBackground="@color/theme"
         app:tabIndicatorColor="@color/white"
         app:tabMode="scrollable"
         app:tabRippleColor="@android:color/transparent"

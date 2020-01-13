@@ -4,13 +4,14 @@ package com.hzy.wan.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.Nullable
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.tabs.TabLayout
 import com.hzy.wan.R
-import com.hzy.wan.adapter.ViewPageAdapter
 import com.hzy.wan.bean.ProjectTypeBean
 import com.hzy.wan.viewmodel.ProjectViewModel
+import com.ju.baselibrary.adapter.JViewPagerAdapter
 import com.ju.baselibrary.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_projects.*
 
@@ -48,14 +49,14 @@ class ProjectsFragment : BaseFragment() {
             fragment.arguments = bundle
             fragmentsList.add(fragment)
         }
-        val adapter = object : ViewPageAdapter(childFragmentManager, fragmentsList) {
+        val adapter = object : JViewPagerAdapter(childFragmentManager, fragmentsList as List<Fragment>?) {
             @Nullable
             override fun getPageTitle(position: Int): CharSequence {
                 return tabs[position]
             }
         }
         viewPager.adapter = adapter
-//        viewPager.offscreenPageLimit = tabs.size
+        viewPager.offscreenPageLimit = tabs.size
         tabLayout.setupWithViewPager(viewPager)
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

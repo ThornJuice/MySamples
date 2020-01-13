@@ -14,14 +14,42 @@ import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.bean.ProjectBean
 import com.hzy.wan.jump
 import com.hzy.wan.viewmodel.ProjectViewModel
-import com.ju.baselibrary.base.BaseFragment
+import com.ju.baselibrary.base.BaseLazyFragment
 import kotlinx.android.synthetic.main.fragment_project_list.*
 
 /**
  * 项目列表
  *
  */
-class ProjectListFragment : BaseFragment() {
+class ProjectListFragment : BaseLazyFragment() {
+    override fun lazyLoad() {
+        mViewModel.getProject(page,mId)
+        mViewModel.projectBean.observe(this, Observer {
+            swipeRefreshLayout.isRefreshing = false
+            if (page == 1) {
+                mList.clear()
+                if (it.data.datas.size > 0) {
+                    mList.addAll(it.data.datas)
+                    adapter?.setNewData(mList)
+                    page++
+                    adapter?.loadMoreComplete()
+                } else {
+                    adapter?.setNewData(null)
+                    adapter?.loadMoreEnd()
+                }
+            } else {
+                if (it.data.datas.size > 0) {
+                    mList.addAll(it.data.datas)
+                    adapter?.setNewData(mList)
+                    adapter?.loadMoreComplete()
+                    page++
+                } else {
+                    adapter?.loadMoreEnd()
+                }
+            }
+        })
+    }
+
     lateinit var mViewModel: ProjectViewModel
     lateinit var adapter: MyAdapter
     var mList = ArrayList<ProjectBean.DataBean.DatasBean>()
@@ -57,33 +85,6 @@ class ProjectListFragment : BaseFragment() {
         }
     }
 
-    override fun initData() {
-        mViewModel.getProject(page,mId)
-        mViewModel.projectBean.observe(this, Observer {
-            swipeRefreshLayout.isRefreshing = false
-            if (page == 1) {
-                mList.clear()
-                if (it.data.datas.size > 0) {
-                    mList.addAll(it.data.datas)
-                    adapter?.setNewData(mList)
-                    page++
-                    adapter?.loadMoreComplete()
-                } else {
-                    adapter?.setNewData(null)
-                    adapter?.loadMoreEnd()
-                }
-            } else {
-                if (it.data.datas.size > 0) {
-                    mList.addAll(it.data.datas)
-                    adapter?.setNewData(mList)
-                    adapter?.loadMoreComplete()
-                    page++
-                } else {
-                    adapter?.loadMoreEnd()
-                }
-            }
-        })
-    }
 
 
     class MyAdapter(var list: List<ProjectBean.DataBean.DatasBean>?) :
