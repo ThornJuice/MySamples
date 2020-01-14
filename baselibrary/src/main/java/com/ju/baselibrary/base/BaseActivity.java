@@ -7,8 +7,10 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.ju.baselibrary.R;
 import com.ju.baselibrary.utils.StatusBarUtil;
@@ -64,6 +66,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void setPageTitle(String title) {
-        baseTitleBar.setPageTitle(title);
+        if (TextUtils.isEmpty(title)) {
+            baseTitleBar.setPageTitle("标题");
+        } else {
+            baseTitleBar.setPageTitle(title);
+        }
     }
 }

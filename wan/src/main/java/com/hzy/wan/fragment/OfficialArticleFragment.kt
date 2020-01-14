@@ -3,6 +3,7 @@ package fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,7 +30,7 @@ class OfficialArticleFragment : BaseLazyFragment() {
     var page = 1
     var mId: Int = 0
     override fun init() {
-        mId = arguments!!.getInt("id")
+        mId = arguments?.getInt("id") ?: 0
     }
 
     override fun getLayoutId(): Int {
@@ -37,6 +38,7 @@ class OfficialArticleFragment : BaseLazyFragment() {
     }
 
     override fun initView(view: View?) {
+        swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.theme))
         mViewModel = ViewModelProvider(this)[OfficialViewModel::class.java]
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter = MyAdapter(null)

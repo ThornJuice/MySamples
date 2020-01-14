@@ -2,8 +2,6 @@ package com.hzy.wan.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hzy.wan.bean.BannerBean
-import com.hzy.wan.bean.HomeArticleBean
 import com.hzy.wan.bean.SystemArticleBean
 import com.hzy.wan.bean.SystemBean
 import com.hzy.wan.http.RetrofitManager
@@ -28,11 +26,11 @@ class SystemViewModel : ViewModel() {
         }
     }
 
-    fun getArticle( page: Int,id: Int) {
+    fun getArticle(page: Int, id: Int) {
         coroutineScope.launch {
             try {
                 val data = withContext(Dispatchers.IO) {
-                    RetrofitManager.getInstance().create().getSysArticle(page,id)
+                    RetrofitManager.getInstance().create().getSysArticle(page, id)
                 }
                 systemArticleBean.value = data
 

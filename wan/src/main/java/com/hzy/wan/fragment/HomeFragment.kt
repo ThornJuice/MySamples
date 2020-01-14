@@ -3,12 +3,14 @@ package com.hzy.wan.fragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
+import com.hzy.wan.R
 import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.bean.HomeArticleBean
 import com.hzy.wan.jump
@@ -23,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  *
  */
 class HomeFragment : BaseFragment() {
+
     lateinit var mViewModel: HomeViewModel
     lateinit var adapter: MyAdapter
     var mList = ArrayList<HomeArticleBean.DataBean.DatasBean>()
@@ -30,10 +33,13 @@ class HomeFragment : BaseFragment() {
     override fun init() {
         title_bar.setPageTitle("首页")
     }
+
     override fun getLayoutId(): Int {
-        return com.hzy.wan.R.layout.fragment_home
+        return R.layout.fragment_home
     }
+
     override fun initView(view: View?) {
+        swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.theme))
         mViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter = MyAdapter(null)
@@ -88,19 +94,18 @@ class HomeFragment : BaseFragment() {
     }
 
 
-
     class MyAdapter(var list: List<HomeArticleBean.DataBean.DatasBean>?) :
-            BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(com.hzy.wan.R.layout.item_home_article, list) {
+            BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.item_home_article, list) {
 
         override fun convert(helper: BaseViewHolder?, item: HomeArticleBean.DataBean.DatasBean?) {
-            helper?.setText(com.hzy.wan.R.id.tv_title, item?.title)
+            helper?.setText(R.id.tv_title, item?.title)
             if (!item?.shareUser.isNullOrBlank()) {
-                helper?.setText(com.hzy.wan.R.id.tv_share_name, "分享者：" + item?.shareUser)
+                helper?.setText(R.id.tv_share_name, "分享者：" + item?.shareUser)
             } else {
-                helper?.setText(com.hzy.wan.R.id.tv_share_name, "作者：" + item?.author)
+                helper?.setText(R.id.tv_share_name, "作者：" + item?.author)
             }
-            helper?.setText(com.hzy.wan.R.id.tv_type, "分类：" + item?.superChapterName)
-            helper?.setText(com.hzy.wan.R.id.tv_date, item?.niceShareDate)
+            helper?.setText(R.id.tv_type, "分类：" + item?.superChapterName)
+            helper?.setText(R.id.tv_date, item?.niceShareDate)
         }
     }
 }

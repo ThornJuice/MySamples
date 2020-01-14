@@ -1,12 +1,16 @@
 package com.hzy.wan.fragment
 
 
+import android.media.Image
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hzy.wan.R
@@ -23,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_project_list.*
  */
 class ProjectListFragment : BaseLazyFragment() {
     override fun lazyLoad() {
-        mViewModel.getProject(page,mId)
+        mViewModel.getProject(page, mId)
         mViewModel.projectBean.observe(this, Observer {
             swipeRefreshLayout.isRefreshing = false
             if (page == 1) {
@@ -56,7 +60,7 @@ class ProjectListFragment : BaseLazyFragment() {
     var page = 1
     var mId: Int = 0
     override fun init() {
-        mId = arguments!!.getInt("id")
+        mId = arguments?.getInt("id") ?: 0
     }
 
     override fun getLayoutId(): Int {
@@ -64,18 +68,19 @@ class ProjectListFragment : BaseLazyFragment() {
     }
 
     override fun initView(view: View?) {
+        swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.theme))
         mViewModel = ViewModelProvider(this)[ProjectViewModel::class.java]
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         adapter = MyAdapter(null)
         recyclerView.adapter = adapter
         adapter?.setEnableLoadMore(true)
         adapter?.setOnLoadMoreListener({
-            mViewModel.getProject(page,mId)
+            mViewModel.getProject(page, mId)
         }, recyclerView)
         adapter?.disableLoadMoreIfNotFullPage()
         swipeRefreshLayout.setOnRefreshListener {
             page = 1
-            mViewModel.getProject(page,mId)
+            mViewModel.getProject(page, mId)
         }
         adapter?.setOnItemClickListener { _, view, position ->
             val bundle = Bundle()
@@ -86,18 +91,19 @@ class ProjectListFragment : BaseLazyFragment() {
     }
 
 
-
     class MyAdapter(var list: List<ProjectBean.DataBean.DatasBean>?) :
-            BaseQuickAdapter<ProjectBean.DataBean.DatasBean, BaseViewHolder>(R.layout.item_home_article, list) {
+            BaseQuickAdapter<ProjectBean.DataBean.DatasBean, BaseViewHolder>(R.layout.item_project, list) {
 
-        override fun convert(helper: BaseViewHolder?, item: ProjectBean.DataBean.DatasBean?) {
+        override fun convert(helper: BaseViewHolder, item: ProjectBean.DataBean.DatasBean?) {
             helper?.setText(R.id.tv_title, item?.title)
             if (!item?.shareUser.isNullOrBlank()) {
-                helper?.setText(R.id.tv_share_name, "分享者：" + item?.shareUser)
+                helper?.setText(R.id.tv_author, "分享者：" + item?.shareUser)
             } else {
-                helper?.setText(R.id.tv_share_name, "作者：" + item?.author)
+                helper?.setText(R.id.tv_author, "作者：" + item?.author)
             }
-            helper?.setText(R.id.tv_type, "分类：" + item?.superChapterName)
+            val image = helper?.getView<ImageView>(R.id.iv_image)
+            Glide.with(mContext).load(item?.envelopePic).fitCenter().placeholder(R.mipmap.loading).into(image);
+            helper?.setText(R.id.tv_content, item?.desc)
             helper?.setText(R.id.tv_date, item?.niceShareDate)
         }
     }

@@ -1,6 +1,7 @@
 package com.ju.baselibrary.base;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
@@ -11,7 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment {
-
+    protected Context mContext;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
     protected abstract void init();
 
     protected abstract void initView(View view);

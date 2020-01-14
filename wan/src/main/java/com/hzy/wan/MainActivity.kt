@@ -10,6 +10,7 @@ import com.hzy.wan.fragment.OfficialAccountsFragment
 import com.hzy.wan.fragment.ProjectsFragment
 import com.hzy.wan.fragment.SystemFragment
 import com.ju.baselibrary.base.BaseActivity
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {

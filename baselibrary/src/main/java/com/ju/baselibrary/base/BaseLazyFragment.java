@@ -1,5 +1,6 @@
 package com.ju.baselibrary.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public abstract class BaseLazyFragment extends Fragment {
+    protected Context mContext;
     /**
      * 视图是否加载完毕
      */
@@ -33,6 +35,12 @@ public abstract class BaseLazyFragment extends Fragment {
      */
     @LayoutRes
     protected abstract int getLayoutId();
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
 
     @Nullable
     @Override
