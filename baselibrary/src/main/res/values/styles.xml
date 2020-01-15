@@ -56,7 +56,7 @@
         <item name="android:paddingRight">15dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:background">@drawable/selecter_pressed</item>
+        <item name="android:background">@drawable/selector_pressed</item>
         <item name="android:gravity">center_vertical</item>
     </style>
     <!-- 常用布局 LinearLayout 2 -->
@@ -81,6 +81,13 @@
         <item name="android:textColor">@color/black666</item>
         <item name="android:textSize">14sp</item>
         <item name="android:background">@color/white</item>
+    </style>
+    <style name="loading_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowBackground">@android:color/transparent</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">false</item><!--模糊-->
     </style>
     <!-- checkBox -->
     <!-- <style name="customCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">

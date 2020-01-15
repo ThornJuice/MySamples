@@ -8,19 +8,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
-
 import com.ju.baselibrary.R;
 
 
 /**
- * Created by admin on 2017/9/29.
+ * loadingDialog
  */
 
-public class ViewUtils {
+public class LoadingUtil {
 
     public static Dialog loadingDialog;
-    public static void createLoadingDialog(final Activity context, boolean flag, String str) {
+
+    public static void show(final Activity context, boolean flag, String str) {
 
         if (context == null)
             return;
@@ -29,7 +28,6 @@ public class ViewUtils {
         RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.dialog_view);// 加载布局
         TextView tvText = (TextView) v.findViewById(R.id.tv_text);
         tvText.setText(str);
-        // 加载动画
         if (loadingDialog != null && loadingDialog.isShowing()) return;
 
         if (context.getParent() != null)
@@ -47,19 +45,11 @@ public class ViewUtils {
             loadingDialog.show();
     }
 
-    /**
-     * @param context
-     * @return
-     */
-    public static void createLoadingDialog(Activity context, String str) {
-        createLoadingDialog(context, true, str);
+    public static void show(Activity context, String str) {
+        show(context, true, str);
     }
 
-
-    /**
-     * 取消 ProgressBar
-     */
-    public static void cancelLoadingDialog() {
+    public static void dismiss() {
         if (loadingDialog != null && loadingDialog.isShowing()) {
             loadingDialog.dismiss();
         }

@@ -18,10 +18,10 @@ import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
 
-public class App extends MultiDexApplication {
-    private static App instance;
+public class BaseApp extends MultiDexApplication {
+    private static BaseApp instance;
     private static Context applicationContext;
-    public static App getAppInsatnce(){
+    public static BaseApp getAppInsatnce(){
         return instance;
     }
     public static Context getAppContext(){

@@ -21,13 +21,17 @@
             android:scaleType="centerInside" />
     </RelativeLayout>
 
-    <TextView
+    <com.ju.baselibrary.utils.MarqueTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxLength="20"
-        android:ellipsize="end"
         android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/right_layout"
+        android:layout_toRightOf="@id/left_layout"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
         android:textColor="#ffffff"
         android:textSize="20sp" />
 

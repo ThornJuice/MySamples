@@ -11,7 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ju.baselibrary.widget.gloading.Gloading;
+
 public abstract class BaseLazyFragment extends Fragment {
+    protected Gloading.Holder mLoadHolder;
     protected Context mContext;
     /**
      * 视图是否加载完毕

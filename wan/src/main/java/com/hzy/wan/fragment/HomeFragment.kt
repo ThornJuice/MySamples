@@ -13,9 +13,12 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.hzy.wan.R
 import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.bean.HomeArticleBean
+import com.hzy.wan.dismissLoadDialog
+import com.hzy.wan.initLoadDialog
 import com.hzy.wan.jump
 import com.hzy.wan.viewmodel.HomeViewModel
 import com.ju.baselibrary.base.BaseFragment
+import com.ju.baselibrary.callback.RetryClickListener
 import com.ju.baselibrary.utils.XLog
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -25,7 +28,6 @@ import kotlinx.android.synthetic.main.fragment_home.*
  *
  */
 class HomeFragment : BaseFragment() {
-
     lateinit var mViewModel: HomeViewModel
     lateinit var adapter: MyAdapter
     var mList = ArrayList<HomeArticleBean.DataBean.DatasBean>()
@@ -39,6 +41,7 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun initView(view: View?) {
+        mLoadHolder = swipeRefreshLayout.initLoadDialog(RetryClickListener { mViewModel.getData(page) })
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.theme))
         mViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -62,10 +65,14 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun initData() {
+        //showLoadDialog()
+        mLoadHolder.showLoading()
         mViewModel.getData(page)
         mViewModel.getBanner()
         mViewModel.articleLd.observe(this, Observer {
             swipeRefreshLayout.isRefreshing = false
+            dismissLoadDialog()
+            mLoadHolder.showLoadSuccess()
             if (page == 1) {
                 mList.clear()
                 if (it.data.datas.size > 0) {

@@ -10,12 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.hzy.wan.R
+import com.hzy.wan.*
 import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.bean.OfficialArticleBean
-import com.hzy.wan.jump
 import com.hzy.wan.viewmodel.OfficialViewModel
 import com.ju.baselibrary.base.BaseLazyFragment
+import com.ju.baselibrary.callback.RetryClickListener
+import com.ju.baselibrary.utils.LoadingUtil
+import com.ju.baselibrary.widget.gloading.Gloading
 import kotlinx.android.synthetic.main.fragment_official_list.*
 
 
@@ -38,6 +40,7 @@ class OfficialArticleFragment : BaseLazyFragment() {
     }
 
     override fun initView(view: View?) {
+        mLoadHolder = swipeRefreshLayout.initLoadDialog(RetryClickListener { mViewModel.getArticle(mId, page) })
         swipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mContext, R.color.theme))
         mViewModel = ViewModelProvider(this)[OfficialViewModel::class.java]
         recyclerView.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -61,9 +64,13 @@ class OfficialArticleFragment : BaseLazyFragment() {
     }
 
     override fun lazyLoad() {
+        mLoadHolder.showLoading()
+//        showLoadDialog()
         mViewModel.getArticle(mId, page)
         mViewModel.articleBean.observe(this, Observer {
             swipeRefreshLayout.isRefreshing = false
+//            dismissLoadDialog()
+            mLoadHolder.showLoadSuccess()
             if (page == 1) {
                 mList.clear()
                 if (it.data.datas.size > 0) {

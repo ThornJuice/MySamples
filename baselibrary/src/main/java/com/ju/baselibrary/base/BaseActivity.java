@@ -10,13 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.ju.baselibrary.R;
 import com.ju.baselibrary.utils.StatusBarUtil;
 import com.ju.baselibrary.widget.BaseTitleBar;
+import com.ju.baselibrary.widget.gloading.Gloading;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    protected Gloading.Holder mHolder;
     protected BaseTitleBar baseTitleBar;
     protected Context mContext;
 
@@ -66,10 +67,41 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void setPageTitle(String title) {
-        if (TextUtils.isEmpty(title)) {
-            baseTitleBar.setPageTitle("标题");
-        } else {
-            baseTitleBar.setPageTitle(title);
+        baseTitleBar.setPageTitle(TextUtils.isEmpty(title) ? "标题" : title);
+    }
+    protected void initLoadingStatusViewIfNeed() {
+        if (mHolder == null) {
+            //bind status view to activity root view by default
+            mHolder = Gloading.getDefault().wrap(this).withRetry(new Runnable() {
+                @Override
+                public void run() {
+                    onLoadRetry();
+                }
+            });
         }
+    }
+
+    protected void onLoadRetry() {
+        // override this method in subclass to do retry task
+    }
+
+    public void showLoading() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoading();
+    }
+
+    public void showLoadSuccess() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadSuccess();
+    }
+
+    public void showLoadFailed() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showLoadFailed();
+    }
+
+    public void showEmpty() {
+        initLoadingStatusViewIfNeed();
+        mHolder.showEmpty();
     }
 }
