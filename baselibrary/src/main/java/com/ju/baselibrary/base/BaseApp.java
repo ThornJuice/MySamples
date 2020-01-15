@@ -4,6 +4,8 @@ import android.content.Context;
 import androidx.multidex.MultiDex;
 import androidx.multidex.MultiDexApplication;
 
+import com.ju.baselibrary.widget.gloading.Gloading;
+import com.ju.baselibrary.widget.gloading.GlobalAdapter;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
 import com.lzy.okgo.cache.CacheMode;
@@ -35,6 +37,7 @@ public class App extends MultiDexApplication {
         super.onCreate();
         instance = this;
         applicationContext = getApplicationContext();
+        Gloading.initDefault(new GlobalAdapter());
         //initNetWork();
     }
     /**
