@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.ju.baselibrary.R;
 
+import java.lang.ref.WeakReference;
+
 
 /**
  * loadingDialog
@@ -17,7 +19,7 @@ import com.ju.baselibrary.R;
 
 public class LoadingUtil {
 
-    public static Dialog loadingDialog;
+    public static WeakReference<Dialog> loadingDialog;
 
     public static void show(final Activity context, boolean flag, String str) {
 
@@ -28,21 +30,21 @@ public class LoadingUtil {
         RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.dialog_view);// 加载布局
         TextView tvText = (TextView) v.findViewById(R.id.tv_text);
         tvText.setText(str);
-        if (loadingDialog != null && loadingDialog.isShowing()) return;
+        if (loadingDialog != null && loadingDialog.get().isShowing()) return;
 
         if (context.getParent() != null)
-            loadingDialog = new Dialog(context.getParent(), R.style.loading_dialog);// 创建自定义样式dialog
+            loadingDialog = new WeakReference<>(new Dialog(context.getParent(), R.style.loading_dialog));// 创建自定义样式dialog
         else {
-            loadingDialog = new Dialog(context, R.style.loading_dialog);// 创建自定义样式dialog
+            loadingDialog = new WeakReference<>(new Dialog(context, R.style.loading_dialog));// 创建自定义样式dialog
         }
 
-        loadingDialog.setCancelable(true);// 可以用“返回键”取消
-        loadingDialog.setCanceledOnTouchOutside(false);
-        loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(
+        loadingDialog.get().setCancelable(true);// 可以用“返回键”取消
+        loadingDialog.get().setCanceledOnTouchOutside(false);
+        loadingDialog.get().setContentView(layout, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));// 设置布局
         if (!context.isFinishing())
-            loadingDialog.show();
+            loadingDialog.get().show();
     }
 
     public static void show(Activity context, String str) {
@@ -50,8 +52,9 @@ public class LoadingUtil {
     }
 
     public static void dismiss() {
-        if (loadingDialog != null && loadingDialog.isShowing()) {
-            loadingDialog.dismiss();
+        if (loadingDialog != null && loadingDialog.get().isShowing()) {
+            loadingDialog.get().dismiss();
+            loadingDialog = null;
         }
     }
 

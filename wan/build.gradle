@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.hzy.wan"
-        minSdkVersion 15
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -26,6 +26,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
 
 }
@@ -50,11 +54,15 @@ dependencies {
     //liveData 和 ViewModel 等
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //底部导航
     implementation 'com.ashokvarma.android:bottom-navigation-bar:1.2.0'
+    //webview
     implementation 'com.just.agentweb:agentweb:4.1.2' //
     // leakcanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    //banner
+    implementation 'com.github.zhpanvip:BannerViewPager:2.6.5'
 }

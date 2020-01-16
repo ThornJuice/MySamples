@@ -3,14 +3,8 @@ package com.hzy.wan.util
 import android.util.Log
 
 
-class A {
-   companion object B{
+class A private constructor(){
+   companion object {
        val z = "xxx"
    }
-     object D{
-        val z = "xxx"
-    }
-    object E{
-        val z = "xxx"
-    }
 }

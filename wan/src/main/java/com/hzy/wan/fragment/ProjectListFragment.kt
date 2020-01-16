@@ -17,6 +17,8 @@ import com.chad.library.adapter.base.BaseViewHolder
 import com.hzy.wan.*
 import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.bean.ProjectBean
+import com.hzy.wan.util.GlideUtil
+import com.hzy.wan.util.GlideUtil2
 import com.hzy.wan.viewmodel.ProjectViewModel
 import com.ju.baselibrary.base.BaseLazyFragment
 import com.ju.baselibrary.callback.RetryClickListener
@@ -109,7 +111,8 @@ class ProjectListFragment : BaseLazyFragment() {
                 helper?.setText(R.id.tv_author, "作者：" + item?.author)
             }
             val image = helper?.getView<ImageView>(R.id.iv_image)
-            Glide.with(mContext).load(item?.envelopePic).fitCenter().placeholder(R.mipmap.loading).into(image);
+            GlideUtil.instance.displayImage(item?.envelopePic, image)
+            GlideUtil2.displayImage(item?.envelopePic, image)
             helper?.setText(R.id.tv_content, item?.desc)
             helper?.setText(R.id.tv_date, item?.niceShareDate)
         }
