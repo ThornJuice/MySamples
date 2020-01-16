@@ -112,7 +112,7 @@ class ProjectListFragment : BaseLazyFragment() {
             }
             val image = helper?.getView<ImageView>(R.id.iv_image)
             GlideUtil.instance.displayImage(item?.envelopePic, image)
-            GlideUtil2.displayImage(item?.envelopePic, image)
+           // GlideUtil2.displayImage(item?.envelopePic, image)
             helper?.setText(R.id.tv_content, item?.desc)
             helper?.setText(R.id.tv_date, item?.niceShareDate)
         }
