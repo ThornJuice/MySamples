@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">baseLibrary</string>
+    <string name="title">标题</string>
     <string name="to_load_success">加载成功</string>
     <string name="to_load_failed">加载失败</string>
     <string name="to_load_empty">空态</string>

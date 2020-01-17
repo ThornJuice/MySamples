@@ -10,6 +10,7 @@ import com.hzy.wan.fragment.OfficialAccountsFragment
 import com.hzy.wan.fragment.ProjectsFragment
 import com.hzy.wan.fragment.SystemFragment
 import com.ju.baselibrary.base.BaseActivity
+import com.ju.baselibrary.base.BaseApp
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,6 +28,7 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
 
 
     override fun initView() {
+        BaseApp.getAppContext()
         baseTitleBar.visibility = View.GONE
         fragmentManager = supportFragmentManager
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED)
