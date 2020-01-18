@@ -74,7 +74,9 @@ abstract class BaseActivity : AppCompatActivity() {
             finish()
         })
     }
-
+    protected fun removeTitleBar() {
+        baseTitleBar.visibility = View.GONE
+    }
     protected fun setPageTitle(title: String = getString(R.string.title)) {
         baseTitleBar?.setPageTitle(title)
     }

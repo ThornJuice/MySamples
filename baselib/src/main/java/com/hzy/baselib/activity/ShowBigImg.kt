@@ -1,8 +1,8 @@
 package com.hzy.baselib.activity
 
+
 import android.content.Context
 import android.content.Intent
-
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -11,18 +11,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-
-
 import com.hzy.baselib.R
 import com.hzy.baselib.base.BaseActivity
 import com.hzy.baselib.util.GlideUtil
 import com.hzy.baselib.util.MediaConstant
 import com.hzy.baselib.widget.CancelOrOkDialog
-
-import java.util.ArrayList
-
+import kotlinx.android.synthetic.main.activity_base.*
 import uk.co.senab.photoview.PhotoView
 import uk.co.senab.photoview.PhotoViewAttacher
+import java.util.*
 
 
 /**
@@ -44,6 +41,7 @@ class ShowBigImg : BaseActivity(), ViewPager.OnPageChangeListener, View.OnClickL
 
 
     override fun initView() {
+        removeTitleBar()
         try {
             imgList = intent.getStringArrayListExtra(MediaConstant.IMG_LIST)
             if (imgList == null) {
@@ -151,7 +149,7 @@ class ShowBigImg : BaseActivity(), ViewPager.OnPageChangeListener, View.OnClickL
 
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             val view = getItemView(R.layout.view_pager_img)
-            GlideUtil.displayImage(imgList!![position], view.findViewById<View>(R.id.img_iv) as ImageView)
+             GlideUtil.displayImage(imgList!![position], view.findViewById<View>(R.id.img_iv) as ImageView)
             val photoView = view.findViewById<PhotoView>(R.id.img_iv)
             photoView.onPhotoTapListener = object : PhotoViewAttacher.OnPhotoTapListener {
                 override fun onPhotoTap(view: View, x: Float, y: Float) {

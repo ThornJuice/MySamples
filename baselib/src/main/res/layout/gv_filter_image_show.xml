@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/lrl"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:id="@+id/fiv"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:padding="5dp"
+            android:scaleType="centerCrop" />
+         <TextView
+             android:id="@+id/tv_dutration"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:visibility="gone"
+             android:text="100/32"
+             android:textColor="@color/white"
+             android:layout_alignParentBottom="true"
+             android:layout_centerHorizontal="true"
+             android:layout_marginBottom="@dimen/border_4"
+             android:textSize="@dimen/sp13"
+             android:singleLine="true"
+             android:ellipsize="end" />
+        <LinearLayout
+            android:id="@+id/ll_del"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/iv_del"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@mipmap/delet_zhaopian_1x" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lrl"
+        android:layout_alignTop="@+id/lrl"
+        android:layout_alignRight="@+id/lrl"
+        android:layout_alignBottom="@+id/lrl"
+        android:gravity="center">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <com.hzy.baselib.widget.AequilateImgView
+            android:id="@+id/play_img"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:adjustViewBounds="true"
+            android:background="@mipmap/play_white" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:gravity="center|bottom"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/border_15"
+        android:layout_marginRight="@dimen/border_15"
+        android:background="@drawable/white_10_radius"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/from_album"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/border_45"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="相册"
+            android:textColor="@color/blue"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/from_camera"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/border_45"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="拍照"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/from_cameraVideo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/border_45"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="录视频"
+            android:textColor="@color/blue"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/border_45"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/border_20"
+        android:layout_marginTop="@dimen/border_10"
+        android:layout_marginRight="@dimen/border_20"
+        android:layout_marginBottom="@dimen/border_10"
+        android:background="@drawable/white_10_radius"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/blue"
+        android:textSize="16sp" />
+</LinearLayout>

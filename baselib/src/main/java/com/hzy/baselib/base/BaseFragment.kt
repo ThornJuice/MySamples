@@ -20,10 +20,8 @@ abstract class BaseFragment : Fragment() {
     /**
      * 加载布局
      */
-    @get:LayoutRes
-    protected abstract val layoutId: Int
-
-    override fun onAttach(context: Context?) {
+    protected abstract fun getLayoutId(): Int
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
     }
@@ -35,11 +33,12 @@ abstract class BaseFragment : Fragment() {
     protected abstract fun initData()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(layoutId, null)
+        return inflater.inflate(getLayoutId(), null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mContext = context
         init()
         initView(view)
         initData()
