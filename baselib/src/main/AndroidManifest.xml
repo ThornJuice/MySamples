@@ -14,9 +14,11 @@
     <!-- 允许程序调用系统相机 -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <application>
-        <activity android:name=".activity.ShowBigImg">
-        </activity>
-        <activity android:name=".activity.ShowVideo">
-        </activity>
+        <!-- 查看大图 -->
+        <activity android:name=".activity.ShowBigImg"/>
+        <!-- 播放视频 -->
+        <activity android:name=".activity.ShowVideo"/>
+        <!-- webview -->
+        <activity android:name=".activity.WebViewActivity"/>
     </application>
 </manifest>

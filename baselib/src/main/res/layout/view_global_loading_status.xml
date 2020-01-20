@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/text"
         android:textSize="16sp"
-        android:textColor="@color/black666"
+        android:textColor="@color/body_text"
         android:gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"

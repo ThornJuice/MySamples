@@ -15,8 +15,7 @@ import com.hzy.baselib.R
 import com.hzy.baselib.base.BaseActivity
 import com.hzy.baselib.util.GlideUtil
 import com.hzy.baselib.util.MediaConstant
-import com.hzy.baselib.widget.CancelOrOkDialog
-import kotlinx.android.synthetic.main.activity_base.*
+import com.hzy.baselib.widget.CancelOrSureDialog
 import uk.co.senab.photoview.PhotoView
 import uk.co.senab.photoview.PhotoViewAttacher
 import java.util.*
@@ -113,7 +112,7 @@ class ShowBigImg : BaseActivity(), ViewPager.OnPageChangeListener, View.OnClickL
 
     //删除图片
     private fun deletePic() {
-        val dialog = object : CancelOrOkDialog(this@ShowBigImg, "要删除这张图片吗?") {
+        val dialog = object : CancelOrSureDialog(this@ShowBigImg, "要删除这张图片吗?") {
             override fun ok() {
                 super.ok()
                 imgList!!.removeAt(mPosition)

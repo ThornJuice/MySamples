@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#C30C0B0B</color>
-    <color name="colorPrimaryDark">#C30C0B0B</color><!--默认状态栏颜色-->
-    <color name="colorAccent">#C30C0B0B</color>
-    <color name="theme">#C30C0B0B</color>
+    <color name="colorPrimary">#F36030</color>
+    <color name="colorPrimaryDark">#F36030</color><!--默认状态栏颜色-->
+    <color name="colorAccent">#F36030</color>
+    <color name="theme">#F36030</color>
     <color name="white">#ffffff</color>
     <color name="white7f">#7fffffff</color>
     <color name="black">#000000</color>

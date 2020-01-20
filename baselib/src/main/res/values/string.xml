@@ -10,4 +10,10 @@
     <string name="load_failed_no_network">网络失联了…\n请联网后点击重试</string>
     <string name="empty">这里啥都没有!</string>
     <string name="str_none" />
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
 </resources>

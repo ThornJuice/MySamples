@@ -4,6 +4,7 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
 
     <dimen name="height_top_bar">45dp</dimen>
+
     <!--字体大小-->
     <dimen name="textSize_12">12sp</dimen>
     <dimen name="textSize_13">13sp</dimen>
@@ -24,7 +25,6 @@
     <dimen name="border_8">8dp</dimen>
     <dimen name="border_10">10dp</dimen>
     <dimen name="border_12">12dp</dimen>
-    <dimen name="border_13">13dp</dimen>
     <dimen name="border_15">15dp</dimen>
     <dimen name="border_18">18dp</dimen>
     <dimen name="border_20">20dp</dimen>
@@ -51,7 +51,7 @@
     <dimen name="border_80">80dp</dimen>
     <dimen name="border_90">90dp</dimen>
     <dimen name="border_100">100dp</dimen>
-    <dimen name="border_200">200dp</dimen>
+    <dimen name="border_160">160dp</dimen>
 
 
     <dimen name="sp10">10sp</dimen>
@@ -75,6 +75,5 @@
     <dimen name="dp3">3dp</dimen>
     <dimen name="dp7">7dp</dimen>
     <dimen name="dp10">10dp</dimen>
-    <dimen name="border_title_height">140dp</dimen>
-    <dimen name="border_title_height1">139dp</dimen>
+    <dimen name="fixed_height_bottom_padding">5dp</dimen>
 </resources>

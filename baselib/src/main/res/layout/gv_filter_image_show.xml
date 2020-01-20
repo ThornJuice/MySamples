@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.hzy.baselib.widget.AequilateImgView
+        <com.hzy.baselib.widget.SquareImgView
             android:id="@+id/play_img"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

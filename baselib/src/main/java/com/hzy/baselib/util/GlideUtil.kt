@@ -1,6 +1,7 @@
 package com.hzy.baselib.util
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -33,7 +34,7 @@ object GlideUtil {
      * 加载圆角图片
      * */
     fun displayRadiusImage(url: String, imageView: ImageView, radius: Float = 5f) {
-        val roundedCorners = RoundedCorners(ScreenUtils.dip2px(BaseApp.instance, radius))
+        val roundedCorners = RoundedCorners(dip2px(BaseApp.instance, radius))
         val options = RequestOptions.bitmapTransform(roundedCorners).override(0, 0)
         Glide.with(BaseApp.instance).load(url).apply(options).into(imageView)
     }
@@ -47,5 +48,12 @@ object GlideUtil {
             .circleCrop()
         Glide.with(BaseApp.instance).load(url).apply(options).into(imageView)
 
+    }
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    fun dip2px(context: Context, dpValue: Float): Int {
+        val scale = context.resources.displayMetrics.density
+        return (dpValue * scale + 0.5f).toInt()
     }
 }
