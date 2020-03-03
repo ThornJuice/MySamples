@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/oneFragment">
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.hzy.navigatin.OneFragment"
+        android:label="fragment_one"
+        tools:layout="@layout/fragment_one"></fragment>
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="com.hzy.navigatin.TwoFragment"
+        android:label="fragment_two"
+        tools:layout="@layout/fragment_two">
+        <!--页面跳转传值-->
+        <argument
+            android:name="test"
+            android:defaultValue="@string/app_name" />
+        <!--页面跳转的动作-->
+        <action
+            android:id="@+id/action_twoFragment_to_threeFragment"
+            app:destination="@id/threeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/threeFragment"
+        android:name="com.hzy.navigatin.ThreeFragment"
+        android:label="fragment_three"
+        tools:layout="@layout/fragment_three"></fragment>
+</navigation>
