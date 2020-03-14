@@ -51,7 +51,6 @@ fun Context.jump(clazz: Class<*>, bundle: Bundle) {
 fun Any?.toStringOrNull(): String {
     return this?.toString() ?: ""
 }
-
 fun Fragment.showLoading(content: String = getString(R.string.loading)) {
     LoadingUtil.show(this.activity!!, content)
 }

@@ -43,7 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
     implementation project(path: ':baselibrary')
-    implementation project(path: ':baselib')
+//    implementation project(path: ':baselib')
     //依赖协程核心库
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines"
     //依赖当前平台所对应的平台库
@@ -66,4 +66,6 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
     //banner
     implementation 'com.github.zhpanvip:BannerViewPager:2.6.5'
+    //ByRecyclerView
+    implementation 'com.github.youlookwhat:ByRecyclerView:1.0.15'
 }

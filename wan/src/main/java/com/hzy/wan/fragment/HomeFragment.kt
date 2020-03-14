@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.hzy.wan.*
+import com.hzy.wan.R
 import com.hzy.wan.activity.WebViewActivity
 import com.hzy.wan.adapter.BannerViewHolder
 import com.hzy.wan.bean.BannerBean
 import com.hzy.wan.bean.HomeArticleBean
+import com.hzy.wan.dismissLoadDialog
+import com.hzy.wan.initLoadDialog
+import com.hzy.wan.jump
 import com.hzy.wan.viewmodel.HomeViewModel
 import com.ju.baselibrary.base.BaseFragment
 import com.ju.baselibrary.callback.RetryClickListener
@@ -24,6 +27,8 @@ import com.zhpan.bannerview.constants.IndicatorSlideMode
 import com.zhpan.bannerview.constants.IndicatorStyle
 import com.zhpan.bannerview.constants.PageStyle
 import kotlinx.android.synthetic.main.fragment_home.*
+import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.get
 
 
 /**
@@ -77,7 +82,7 @@ class HomeFragment : BaseFragment() {
         mLoadHolder.showLoading()
         mViewModel.getData(page)
         mViewModel.getBanner()
-        mViewModel.articleLd.observe(this, Observer {
+        mViewModel.articleLd.observe(viewLifecycleOwner, Observer {
             swipeRefreshLayout.isRefreshing = false
             dismissLoadDialog()
             mLoadHolder.showLoadSuccess()
@@ -103,8 +108,13 @@ class HomeFragment : BaseFragment() {
                 }
             }
         })
-        mViewModel.bannerLd.observe(this, Observer {
-            bannerViewPager?.create(it.data)
+//        mViewModel.bannerLd.observe(this, Observer {
+//            bannerViewPager?.create(it.data)
+//        })
+        mViewModel.bannerLd.observe(this,object : Observer<BannerBean>{
+            override fun onChanged(t: BannerBean?) {
+                bannerViewPager?.create(t?.data)
+            }
         })
     }
 

@@ -31,12 +31,10 @@ public abstract class BaseLazyFragment extends Fragment {
     /**
      * 懒加载
      */
-    @UiThread
     protected abstract void lazyLoad();
     /**
      * 加载布局
      */
-    @LayoutRes
     protected abstract int getLayoutId();
 
     @Override

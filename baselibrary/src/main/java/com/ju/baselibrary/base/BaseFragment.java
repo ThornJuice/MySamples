@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.ju.baselibrary.widget.gloading.Gloading;
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment  {
     protected Gloading.Holder mLoadHolder;
     protected Context mContext;
 
@@ -21,6 +22,7 @@ public abstract class BaseFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext = context;
+
     }
 
     protected abstract void init();

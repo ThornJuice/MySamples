@@ -7,12 +7,13 @@ import com.hzy.wan.R
 import com.hzy.wan.adapter.ViewPageAdapter
 import com.hzy.wan.bean.SystemBean
 import com.hzy.wan.fragment.SysListFragment
+import com.hzy.wan.fragment.SysListFragment2
 import com.ju.baselibrary.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_sys.*
 
 class SysActivity : BaseActivity() {
     var mList: List<SystemBean.DataBean.ChildrenBean>? = null
-    var fragmentsList = ArrayList<SysListFragment>()
+    var fragmentsList = ArrayList<SysListFragment2>()
     override fun getLayoutId(): Int {
         return R.layout.activity_sys
     }
@@ -34,7 +35,7 @@ class SysActivity : BaseActivity() {
         val tabs = ArrayList<String>()
         for (i in list.indices) {
             tabs.add(list[i].name)
-            val fragment = SysListFragment()
+            val fragment = SysListFragment2()
             val bundle = Bundle()
             bundle.putInt("id", list[i].id)
             fragment.arguments = bundle

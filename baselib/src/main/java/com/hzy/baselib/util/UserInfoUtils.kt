@@ -71,10 +71,10 @@ object UserInfoUtils {
             val preferences = context.getSharedPreferences(
                 SP_USER_INFO, Context.MODE_PRIVATE
             )
-            val field = model.javaClass.declaredFields
+            val fields = model.javaClass.declaredFields
             val editor = preferences.edit()
             try {
-                for (f in field) {
+                for (f in fields) {
                     f.isAccessible = true
                     if (f.get(model) == null || TextUtils.isEmpty(f.get(model).toString())) {
                         continue

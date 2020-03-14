@@ -3,19 +3,12 @@ package com.hzy.baselib.base
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.FrameLayout
-
-import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-
 import com.hzy.baselib.R
-import com.hzy.baselib.http.HttpStringCallBack
-import com.hzy.baselib.http.OkGoRequest
 import com.hzy.baselib.util.ActivityUtils
 import com.hzy.baselib.util.StatusBarUtil
-import com.hzy.baselib.widget.BaseTitleBar
 import com.hzy.baselib.widget.gloading.Gloading
 import com.lzy.okgo.OkGo
 import kotlinx.android.synthetic.main.activity_base.*
@@ -85,4 +78,5 @@ abstract class BaseActivity : AppCompatActivity() {
     fun onMessageEvent(event: Any) {
 
     }
+
 }

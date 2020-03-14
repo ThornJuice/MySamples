@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/baselibrary" />
             <option value="$PROJECT_DIR$/borderLayout" />
             <option value="$PROJECT_DIR$/customProgressBar" />
+            <option value="$PROJECT_DIR$/customviewgroup" />
+            <option value="$PROJECT_DIR$/designPatterns" />
             <option value="$PROJECT_DIR$/greenDaoSample" />
             <option value="$PROJECT_DIR$/mvpsample" />
             <option value="$PROJECT_DIR$/navigatin" />
