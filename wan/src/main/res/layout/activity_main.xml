@@ -7,7 +7,7 @@
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:operation=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"

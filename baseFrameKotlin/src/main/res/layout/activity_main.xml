@@ -7,7 +7,7 @@
     android:clipToPadding="true"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:operation=".MainActivity">
 
     <FrameLayout
         android:id="@+id/container"

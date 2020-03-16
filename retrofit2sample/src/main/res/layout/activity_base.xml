@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    tools:context=".BaseActivity">
+    tools:operation=".BaseActivity">
     <RelativeLayout
         android:visibility="gone"
         android:background="@color/colorAccent"

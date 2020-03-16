@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".base.BaseActivity">
+    tools:operation=".base.BaseActivity">
 
     <com.hzy.baselib.widget.BaseTitleBar
         android:id="@+id/baseTitleBar"
