@@ -11,11 +11,11 @@ public class Client {
     public static void main(String[] args) {
         Employee ceo = new Employee("Big Brother", 500000);
         Employee manager = new Employee("Tom", 200000);
-        Employee saler = new Employee("Jerry", 100000);
-        Employee saler2 = new Employee("Snoopy", 100000);
+        Employee sales = new Employee("Jerry", 100000);
+        Employee sales2 = new Employee("Snoopy", 100000);
         ceo.add(manager);
-        manager.add(saler);
-        manager.add(saler2);
+        manager.add(sales);
+        manager.add(sales2);
         System.out.println(ceo);
         for (int i = 0; i < ceo.getChild().size(); i++) {
             System.out.println(ceo.getChild().get(i));
