@@ -1,20 +1,15 @@
 package com.ju.designpatterns.state;
 
 
-public abstract class LiftState {
+public abstract class State {
     protected Context context;
 
-    public LiftState(Context context) {
+    public void setContext(Context context) {
         this.context = context;
     }
-    public LiftState(){
 
-    }
-    abstract void open();
+    abstract void handle1();
 
-    abstract void close();
+    abstract void handle2();
 
-    abstract void run();
-
-    abstract void stop();
 }

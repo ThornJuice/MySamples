@@ -1,5 +1,5 @@
 package com.ju.designpatterns.command;
 
-public interface Order {
+public interface Command {
     void execute();
 }

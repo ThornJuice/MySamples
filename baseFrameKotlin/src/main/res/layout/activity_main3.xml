@@ -5,5 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".test.touchevent.Main3Activity">
-
+    <com.hzy.smartfield.test.touchevent.MyLinearLayout
+        android:id="@+id/myLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.hzy.smartfield.test.touchevent.MyButton
+            android:id="@+id/myButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </com.hzy.smartfield.test.touchevent.MyLinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

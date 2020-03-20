@@ -59,6 +59,9 @@ class OfficialAccountsFragment : BaseFragment() {
         viewPager.offscreenPageLimit = tabs.size
         tabLayout.setupWithViewPager(viewPager)
 
+
+
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
 

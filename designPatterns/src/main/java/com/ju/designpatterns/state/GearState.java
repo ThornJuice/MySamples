@@ -1,4 +1,11 @@
 package com.ju.designpatterns.state;
 
-public class GearState {
+
+public abstract class GearState {
+    Bike bike;
+    GearState(Bike bike){
+        this.bike = bike;
+    }
+    public abstract void gearUp();
+    public abstract void gearDown();
 }

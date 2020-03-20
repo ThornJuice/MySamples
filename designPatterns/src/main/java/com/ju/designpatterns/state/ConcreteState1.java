@@ -1,30 +1,16 @@
 package com.ju.designpatterns.state;
 
-public class OpeningState extends LiftState {
-    public OpeningState(Context context) {
-        super(context);
-    }
+public class ConcreteState1 extends State {
 
-    public OpeningState() {
+    @Override
+    void handle1() {
+        //to do
+        System.out.println("ConcreteState1 handle1");
     }
 
     @Override
-    void open() {
-        System.out.println("open");
-    }
-
-    @Override
-    void close() {
-
-    }
-
-    @Override
-    void run() {
-
-    }
-
-    @Override
-    void stop() {
-
+    void handle2() {
+        super.context.setCurrentState(Context.STATE2);
+        super.context.handle2();
     }
 }

@@ -1,4 +1,6 @@
 package com.ju.designpatterns.command;
 
-public class Receiver {
+public abstract class Receiver {
+    abstract void  doSomething();
+    abstract void  doAnything();
 }

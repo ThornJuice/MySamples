@@ -1,4 +1,5 @@
 package com.hzy.smartfield.test.thread;
 
-public class MyRunnable {
+public interface MyRunnable {
+    void run();
 }

@@ -1,6 +1,6 @@
 package com.ju.designpatterns.iterator;
 
 public interface Iterator {
-    void  hasNext();
+    boolean  hasNext();
     Object next();
 }

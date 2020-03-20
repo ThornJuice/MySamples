@@ -1,13 +1,5 @@
 package com.ju.designpatterns.iterator;
 
-import com.ju.designpatterns.factory.AbsHumanFactory;
-import com.ju.designpatterns.factory.HumanFactory;
-import com.ju.designpatterns.factory.StaticHumanFactory;
-import com.ju.designpatterns.factory.WhiteHuman;
-import com.ju.designpatterns.factory.YellowHuman;
-
-import java.util.ArrayList;
-
 /**
  * 迭代器模式
  * 定义:这种模式用于顺序访问集合对象的元素，不需要知道集合对象的底层表示。迭代器模式属于行为型模式。
@@ -18,12 +10,10 @@ import java.util.ArrayList;
 public class Client {
 
     public static void main(String[] strings) {
-        ArrayList<String> list=new ArrayList();
-        list.add("sss");
-
-      for(String s:list){
-
-      }
+        RealContainer container =new RealContainer();
+        for(Iterator iterator = container.getIterator();iterator.hasNext();){
+            System.out.println(iterator.next());
+        }
 
     }
 }
