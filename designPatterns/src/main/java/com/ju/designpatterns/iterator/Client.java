@@ -11,9 +11,12 @@ public class Client {
 
     public static void main(String[] strings) {
         RealContainer container =new RealContainer();
-        for(Iterator iterator = container.getIterator();iterator.hasNext();){
+//        for(Iterator iterator = container.getIterator();iterator.hasNext();){
+//            System.out.println(iterator.next());
+//        }
+        Iterator iterator =container.getIterator();
+        while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
-
     }
 }

@@ -24,14 +24,14 @@ public class MyButton extends AppCompatButton {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Boolean result = super.dispatchTouchEvent(ev);
-        Log.e("MyButton", "子View分发:dispatchTouchEvent" +result+ ev.getAction());
+        Log.e("MyButton", "子View分发:dispatchTouchEvent......" +result+ ev.getAction());
         return result;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Boolean result = super.onTouchEvent(event);
-        Log.e("MyButton", "子Vie处理:onTouchEvent" + result+ event.getAction());
+        Log.e("MyButton", "子Vie处理:onTouchEvent......" + result+ event.getAction());
         return result;
     }
 }

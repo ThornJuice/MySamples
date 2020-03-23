@@ -26,20 +26,20 @@ public class MyLinearLayout extends LinearLayoutCompat {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         Boolean result = super.onInterceptTouchEvent(ev);
-        Log.e("MyLinearLayout","父View拦截:onInterceptTouchEvent"+result+ev.getAction());
+        Log.e("MyLinearLayout","父View拦截:onInterceptTouchEvent......"+result+ev.getAction());
         return  result;
     }
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         Boolean result = super.dispatchTouchEvent(ev);
-        Log.e("MyLinearLayout", "父View分发:dispatchTouchEvent" + result+ev.getAction());
+        Log.e("MyLinearLayout", "父View分发:dispatchTouchEvent......" + result+ev.getAction());
         return result;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Boolean result = super.onTouchEvent(event);
-        Log.e("MyLinearLayout", "父View处理:onTouchEvent" + result+event.getAction());
+        Log.e("MyLinearLayout", "父View处理:onTouchEvent......" + result+event.getAction());
         return result;
     }
 }
