@@ -20,12 +20,12 @@ public class Client {
 //        } else if (women.getType() == 3) {
 //            handler3.HandleMessage(women);
 //        }
-        ITeacher women = new Teacher(2, "todo");
-        Handler handler = new Student1(1);
-        Handler handler2 = new Student2(2);
-        Handler handler3 = new Student3(3);
+        ITeacher teacher = new Teacher(Handler.LEVEL2, "todo");
+        Handler handler = new Student1(Handler.LEVEL1);
+        Handler handler2 = new Student2(Handler.LEVEL2);
+        Handler handler3 = new Student3(Handler.LEVEL3);
         handler.setNext(handler2);
         handler2.setNext(handler3);
-        handler.HandlerMessage(women);
+        handler.HandlerMessage(teacher);
     }
 }
