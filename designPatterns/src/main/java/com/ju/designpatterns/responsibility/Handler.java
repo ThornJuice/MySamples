@@ -11,7 +11,7 @@ public abstract class Handler {
         this.level = level;
     }
 
-    public final void HandlerMessage(IWomen women) {
+    public final void HandlerMessage(ITeacher women) {
         if (women.getType() == this.level) {
             response(women);
         } else {
@@ -23,7 +23,7 @@ public abstract class Handler {
         }
     }
 
-    protected abstract void response(IWomen women);
+    protected abstract void response(ITeacher women);
 
     public void setNext(Handler handler) {
         this.nextHanlder = handler;

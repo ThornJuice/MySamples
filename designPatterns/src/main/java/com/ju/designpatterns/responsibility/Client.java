@@ -9,10 +9,10 @@ package com.ju.designpatterns.responsibility;
  */
 public class Client {
     public static void main(String[] strings) {
-//        IWomen women = new Women(3, "buy");
-//        IHandler handler = new Brother();
-//        IHandler handler2 = new Brother2();
-//        IHandler handler3 = new Brother3();
+//        ITeacher women = new Teacher(3, "buy");
+//        IHandler handler = new Student1();
+//        IHandler handler2 = new Student2();
+//        IHandler handler3 = new Student3();
 //        if (women.getType() == 1) {
 //            handler.HandleMessage(women);
 //        } else if (women.getType() == 2) {
@@ -20,10 +20,10 @@ public class Client {
 //        } else if (women.getType() == 3) {
 //            handler3.HandleMessage(women);
 //        }
-        IWomen women = new Women(2, "buy");
-        Handler handler = new Brother(1);
-        Handler handler2 = new Brother2(2);
-        Handler handler3 = new Brother3(3);
+        ITeacher women = new Teacher(2, "todo");
+        Handler handler = new Student1(1);
+        Handler handler2 = new Student2(2);
+        Handler handler3 = new Student3(3);
         handler.setNext(handler2);
         handler2.setNext(handler3);
         handler.HandlerMessage(women);

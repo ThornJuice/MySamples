@@ -9,7 +9,7 @@ package com.ju.designpatterns.composite;
  */
 public class Client {
     public static void main(String[] args) {
-        Employee ceo = new Employee("Big Brother", 500000);
+        Employee ceo = new Employee("Big Student1", 500000);
         Employee manager = new Employee("Tom", 200000);
         Employee sales = new Employee("Jerry", 100000);
         Employee sales2 = new Employee("Snoopy", 100000);

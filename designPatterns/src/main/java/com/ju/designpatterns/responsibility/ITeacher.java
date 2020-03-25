@@ -1,6 +1,6 @@
 package com.ju.designpatterns.responsibility;
 
-public interface IWomen {
+public interface ITeacher {
       int getType();
-      String getRequest();
+      String getTask();
 }
