@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33000000">
+    <!--<com.hzy.customviewgroup.MyViewGroup-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+        <!--<Button-->
+            <!--android:text="btn"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+    <!--</com.hzy.customviewgroup.MyViewGroup>-->
+    <com.hzy.customviewgroup.MyViewPager
+        android:id="@+id/myviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.hzy.customviewgroup.MyViewPager>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="64px"
+        android:layout_marginRight="30px">
+
+        <LinearLayout
+            android:id="@+id/ll_point_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginRight="40dp"
+            android:orientation="horizontal"></LinearLayout>
+
+        <View
+            android:id="@+id/view_dot"
+            android:layout_width="20px"
+            android:layout_height="20px"
+            android:background="@drawable/bg_shape_white_point"></View>
+    </FrameLayout>
+</RelativeLayout>

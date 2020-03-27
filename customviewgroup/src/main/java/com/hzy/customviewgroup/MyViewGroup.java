@@ -1,7 +1,11 @@
 package com.hzy.customviewgroup;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -20,17 +24,12 @@ public class MyViewGroup extends ViewGroup {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-        int sizeWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int sizeHeight = MeasureSpec.getSize(heightMeasureSpec);
-    }
-
-    @Override
-    protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
-
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childView = getChildAt(i);
+            childView.layout(l, t, r, b);
+        }
     }
 
 }

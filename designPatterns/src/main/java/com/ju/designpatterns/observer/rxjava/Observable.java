@@ -1,4 +1,4 @@
-package com.ju.designpatterns.observer.Rxjava;
+package com.ju.designpatterns.observer.rxjava;
 
 //订阅源(被观察者)
 public class Observable<T> {

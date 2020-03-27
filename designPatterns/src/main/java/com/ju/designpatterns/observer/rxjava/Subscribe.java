@@ -1,4 +1,4 @@
-package com.ju.designpatterns.observer.Rxjava;
+package com.ju.designpatterns.observer.rxjava;
 
 public abstract class Subscribe<T> implements Observer<T> {
     public void onStart() {

@@ -1,4 +1,4 @@
-package com.ju.designpatterns.observer.Rxjava;
+package com.ju.designpatterns.observer.rxjava;
 
 public class Main {
     public static void main(String[] args) {

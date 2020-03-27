@@ -1,4 +1,4 @@
-package com.ju.designpatterns.observer.Rxjava;
+package com.ju.designpatterns.observer.rxjava;
 
 import java.util.concurrent.Executor;
 
