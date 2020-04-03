@@ -1,12 +1,18 @@
 package com.hzy.wan.fragment
 
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Debug
+import android.text.Html
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -27,8 +33,7 @@ import com.zhpan.bannerview.constants.IndicatorSlideMode
 import com.zhpan.bannerview.constants.IndicatorStyle
 import com.zhpan.bannerview.constants.PageStyle
 import kotlinx.android.synthetic.main.fragment_home.*
-import androidx.lifecycle.ViewModelProviders
-import androidx.lifecycle.get
+
 
 
 /**
@@ -36,10 +41,10 @@ import androidx.lifecycle.get
  *
  */
 class HomeFragment : BaseFragment() {
-    private var  bannerViewPager: BannerViewPager<BannerBean.DataBean, BannerViewHolder>?=null
+    private var bannerViewPager: BannerViewPager<BannerBean.DataBean, BannerViewHolder>? = null
     lateinit var mViewModel: HomeViewModel
     lateinit var adapter: MyAdapter
-    var bannerView:View?=null
+    var bannerView: View? = null
     var mList = ArrayList<HomeArticleBean.DataBean.DatasBean>()
     var page = 1
     override fun init() {
@@ -74,10 +79,13 @@ class HomeFragment : BaseFragment() {
         }
         initBanner()
         adapter?.addHeaderView(bannerView)
-
+      //  LinearSnapHelper().attachToRecyclerView(recyclerView)
     }
 
     override fun initData() {
+        val filePath = context?.filesDir?.absolutePath
+        // Debug.startMethodTracing(filePath+"/wanandroid1.trace")
+        Log.e("wanandroid", filePath + "/wanandroid.trace")
         //showLoadDialog()
         mLoadHolder.showLoading()
         mViewModel.getData(page)
@@ -107,11 +115,12 @@ class HomeFragment : BaseFragment() {
                     adapter?.loadMoreEnd()
                 }
             }
+            //  Debug.stopMethodTracing()
         })
 //        mViewModel.bannerLd.observe(this, Observer {
 //            bannerViewPager?.create(it.data)
 //        })
-        mViewModel.bannerLd.observe(this,object : Observer<BannerBean>{
+        mViewModel.bannerLd.observe(this, object : Observer<BannerBean> {
             override fun onChanged(t: BannerBean?) {
                 bannerViewPager?.create(t?.data)
             }
@@ -123,7 +132,12 @@ class HomeFragment : BaseFragment() {
             BaseQuickAdapter<HomeArticleBean.DataBean.DatasBean, BaseViewHolder>(R.layout.item_home_article, list) {
 
         override fun convert(helper: BaseViewHolder?, item: HomeArticleBean.DataBean.DatasBean?) {
-            helper?.setText(R.id.tv_title, item?.title)
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                helper?.setText(R.id.tv_title, Html.fromHtml(item?.title, Html.FROM_HTML_MODE_COMPACT))
+            } else {
+                helper?.setText(R.id.tv_title, Html.fromHtml(item?.title))
+            }
             if (!item?.shareUser.isNullOrBlank()) {
                 helper?.setText(R.id.tv_share_name, "分享者：" + item?.shareUser)
             } else {
@@ -133,8 +147,9 @@ class HomeFragment : BaseFragment() {
             helper?.setText(R.id.tv_date, item?.niceShareDate)
         }
     }
-    private fun initBanner(){
-        bannerView = layoutInflater.inflate(R.layout.layout_home_banner,null)
+
+    private fun initBanner() {
+        bannerView = layoutInflater.inflate(R.layout.layout_home_banner, null)
         bannerViewPager = bannerView?.findViewById(R.id.bannerViewPager)
         bannerViewPager?.run {
             setAutoPlay(true)
@@ -143,7 +158,7 @@ class HomeFragment : BaseFragment() {
                     .setIndicatorStyle(IndicatorStyle.ROUND_RECT)
                     .setInterval(5000)
                     .setScrollDuration(1200)
-                    .setIndicatorColor(ContextCompat.getColor(mContext,R.color.white7f),ContextCompat.getColor(mContext,R.color.white))
+                    .setIndicatorColor(ContextCompat.getColor(mContext, R.color.white7f), ContextCompat.getColor(mContext, R.color.white))
                     .setHolderCreator { BannerViewHolder() }
                     .setOnPageChangeListener(object : OnPageChangeListenerAdapter() {
                         override fun onPageSelected(position: Int) {

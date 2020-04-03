@@ -1,6 +1,7 @@
 package com.hzy.wan.activity
 
 import android.graphics.Bitmap
+import android.view.ViewGroup
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.widget.LinearLayout
