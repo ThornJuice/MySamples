@@ -4,17 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".DoodleActivity">
 
 
-    <com.hzy.customview.drawboard.DrawingBoard
-        android:id="@+id/draw_board"
+    <com.hzy.customview.doodleboard.SimpleDoodleBoard
+        android:id="@+id/doodle_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
+        android:layout_height="300dp"
         android:background="#ffffff" />
-
+    <com.hzy.customview.doodleboard.AdvancedDoodleBoard
+        android:id="@+id/advanced_view"
+        android:layout_below="@id/doodle_view"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -27,7 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@android:drawable/ic_menu_edit" />
+            android:src="@mipmap/doodle_ic_pen" />
 
         <ImageView
             android:id="@+id/iv_eraser"
@@ -35,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@android:drawable/ic_input_delete" />
+            android:src="@mipmap/doodle_ic_eraser" />
 
         <ImageView
             android:id="@+id/iv_clean"
@@ -51,7 +55,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@android:drawable/ic_media_previous" />
+            android:src="@mipmap/doodle_ic_undo" />
 
         <ImageView
             android:id="@+id/iv_next"
@@ -59,7 +63,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="8dp"
-            android:src="@android:drawable/ic_media_next" />
+            android:scaleX="-1"
+            android:src="@mipmap/doodle_ic_undo" />
     </LinearLayout>
 
 

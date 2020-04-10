@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              //   mEraser.getBackground().setLevel(1);
                 break;
             case R.id.iv_clean:
-                alertDialogClean();
+                mDrawingBoard.clean();
+               // alertDialogClean();
                 break;
             case R.id.iv_last:
                 mDrawingBoard.lastStep();

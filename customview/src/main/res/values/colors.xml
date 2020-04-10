@@ -5,4 +5,12 @@
     <color name="colorAccent">#00574B</color>
     <color name="color_918f8e">#918f8e</color>
     <color name="color_a9c6d6">#a9c6d6</color>
+
+    <color name="color_1">#FFFF0000</color>
+    <color name="color_2">#FFFF00FF</color>
+    <color name="color_3">#FF0000FF</color>
+    <color name="color_4">#FF00FFFF</color>
+    <color name="color_5">#FF00FF00</color>
+    <color name="color_6">#FFFFFF00</color>
+    <color name="color_7">#FFFF0000</color>
 </resources>

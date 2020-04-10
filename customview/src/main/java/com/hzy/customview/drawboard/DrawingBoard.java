@@ -38,7 +38,7 @@ public class DrawingBoard extends View {
     //当前控件的高度
     private int mHeight;
     //画布的颜色
-    private int mCanvasColor = Color.WHITE;
+    private int mCanvasColor = Color.GRAY;
     //上次的位置
     private float mLastX;
     private float mLastY;
@@ -52,12 +52,13 @@ public class DrawingBoard extends View {
     private List<DrawPathInfo> currPaths;
     //最多保存20条路径
     private int MAX_PATH = 20;
+
     public DrawingBoard(Context context) {
-        this(context,null);
+        this(context, null);
     }
 
     public DrawingBoard(Context context, AttributeSet attrs) {
-        this(context, attrs,0);
+        this(context, attrs, 0);
     }
 
     public DrawingBoard(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -65,9 +66,10 @@ public class DrawingBoard extends View {
         initPaint();
         initPath();
     }
-    public int dip2px(float dipValue){
+
+    public int dip2px(float dipValue) {
         final float scale = this.getResources().getDisplayMetrics().density;
-        return (int)(dipValue*scale+0.5f);
+        return (int) (dipValue * scale + 0.5f);
     }
 
     //重新测量宽高
@@ -76,25 +78,31 @@ public class DrawingBoard extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         mWidth = MeasureSpec.getSize(widthMeasureSpec);
         mHeight = MeasureSpec.getSize(heightMeasureSpec);
-        setMeasuredDimension(mWidth,mHeight);
+        setMeasuredDimension(mWidth, mHeight);
         initCanvas();
     }
 
-    private void initPath(){
+    private void initPath() {
         mPath = new Path();
         savePaths = new ArrayList<>();
         currPaths = new ArrayList<>();
     }
-    private void initCanvas(){
+
+    private void initCanvas() {
         //创建一个BITMAP
-        mBufferBitmap = Bitmap.createBitmap(mWidth,mHeight, Bitmap.Config.ARGB_8888);
-        Log.e("DrawingBoard","mWidth: "+mWidth+"mHeight: "+mHeight);
-        mBufferCanvas = new Canvas(mBufferBitmap);
-        mBufferCanvas.drawColor(mCanvasColor);
+        if(mBufferBitmap==null){
+            mBufferBitmap = Bitmap.createBitmap(mWidth, mHeight, Bitmap.Config.ARGB_8888);
+        }
+        if(mBufferCanvas == null){
+            mBufferCanvas = new Canvas(mBufferBitmap);
+
+        }
+        //mBufferCanvas.drawColor(mCanvasColor);
     }
-    private void initPaint(){
+
+    private void initPaint() {
         //设置画笔抗锯齿和抖动
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG|Paint.DITHER_FLAG);
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
         //设置画笔填充方式为只描边
         mPaint.setStyle(Paint.Style.STROKE);
         //设置画笔颜色
@@ -110,7 +118,8 @@ public class DrawingBoard extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawBitmap(mBufferBitmap,0,0,null);
+        canvas.drawBitmap(mBufferBitmap, 0, 0, null);
+        //Log.e("DrawingBoard", "mWidth: " + mWidth + "mHeight: " + mHeight);
     }
 
     @Override
@@ -118,17 +127,17 @@ public class DrawingBoard extends View {
 
         float x = event.getX();
         float y = event.getY();
-        switch (event.getAction()){
+        switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
                 mLastX = x;
                 mLastY = y;
-                mPath.moveTo(mLastX,mLastY);
+                mPath.moveTo(mLastX, mLastY);
                 break;
             case MotionEvent.ACTION_MOVE:
                 //画出路径
-                mPath.quadTo(mLastX,mLastY,(mLastX+x)/2,(mLastY+y)/2);
-                mBufferCanvas.drawPath(mPath,mPaint);
+                mPath.quadTo(mLastX, mLastY, (mLastX + x) / 2, (mLastY + y) / 2);
+                mBufferCanvas.drawPath(mPath, mPaint);
                 invalidate();
                 mLastX = x;
                 mLastY = y;
@@ -141,28 +150,29 @@ public class DrawingBoard extends View {
         }
         return true;
     }
-    private void saveDrawPaths(){
-        if (savePaths.size() == MAX_PATH){
+
+    private void saveDrawPaths() {
+        if (savePaths.size() == MAX_PATH) {
             savePaths.remove(0);
         }
         savePaths.clear();
         savePaths.addAll(currPaths);
         Path cachePath = new Path(mPath);
         Paint cachePaint = new Paint(mPaint);
-        savePaths.add(new DrawPathInfo(cachePaint,cachePath));
-        currPaths.add(new DrawPathInfo(cachePaint,cachePath));
+        savePaths.add(new DrawPathInfo(cachePaint, cachePath));
+        currPaths.add(new DrawPathInfo(cachePaint, cachePath));
     }
+
     /**
      * 设置画笔模式
-     * */
-    public void setMode(DrawMode mode){
-        if (mode != mDrawMode){
-            if (mode == DrawMode.EraserMode){
+     */
+    public void setMode(DrawMode mode) {
+        if (mode != mDrawMode) {
+            if (mode == DrawMode.EraserMode) {
                 mPaint.setStrokeWidth(mEraserSize);
                 mPaint.setXfermode(mEraserMode);
                 mPaint.setColor(mCanvasColor);
-            }
-            else{
+            } else {
                 mPaint.setXfermode(null);
                 mPaint.setColor(mPaintColor);
                 mPaint.setStrokeWidth(mPaintSize);
@@ -170,37 +180,40 @@ public class DrawingBoard extends View {
             mDrawMode = mode;
         }
     }
-    public DrawMode getMode(){
+
+    public DrawMode getMode() {
         return mDrawMode;
     }
 
     /**
      * 下一步 反撤销
-     * */
-    public void nextStep(){
-        if (currPaths != savePaths){
-            if (savePaths.size()>currPaths.size()){
+     */
+    public void nextStep() {
+        if (currPaths != savePaths) {
+            if (savePaths.size() > currPaths.size()) {
                 currPaths.add(savePaths.get(currPaths.size()));
                 redrawBitmap();
             }
         }
     }
+
     /**
      * 上一步 撤销
-     * */
-    public void lastStep(){
-        if (currPaths.size()>0){
-            currPaths.remove(currPaths.size()-1);
+     */
+    public void lastStep() {
+        if (currPaths.size() > 0) {
+            currPaths.remove(currPaths.size() - 1);
         }
     }
+
     /**
      * 重绘位图
-     * */
-    private void redrawBitmap(){
+     */
+    private void redrawBitmap() {
         mBufferBitmap.eraseColor(Color.TRANSPARENT);
-        for (int i = 0;i<currPaths.size();i++){
+        for (int i = 0; i < currPaths.size(); i++) {
             DrawPathInfo path = currPaths.get(i);
-            mBufferCanvas.drawPath(path.getPath(),path.getPaint());
+            mBufferCanvas.drawPath(path.getPath(), path.getPaint());
         }
         invalidate();
     }
@@ -210,8 +223,8 @@ public class DrawingBoard extends View {
 
     /**
      * 擦除画布
-     * */
-    public void clean(){
+     */
+    public void clean() {
         savePaths.clear();
         currPaths.clear();
         //将位图擦成透明的
