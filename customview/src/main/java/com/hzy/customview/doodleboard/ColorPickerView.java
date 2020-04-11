@@ -11,6 +11,8 @@ import android.graphics.Shader;
 import android.graphics.SweepGradient;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.nfc.Tag;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -154,6 +156,7 @@ public class ColorPickerView extends View {
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX() - mWidth / 2;
         float y = event.getY() - mHeight / 2 + 50;
+
         boolean inCircle = inColorCircle(x, y,
                 r + mPaint.getStrokeWidth() / 2, r - mPaint.getStrokeWidth() / 2);
         boolean inCenter = inCenter(x, y, centerRadius);
@@ -173,6 +176,7 @@ public class ColorPickerView extends View {
                     }
                     mDrawable = null;
                     mCenterPaint.setColor(interpCircleColor(mCircleColors, unit));
+                   // Log.e("unit", "color" + interpCircleColor(mCircleColors, unit));
                 } else if (downInRect && inRect) {//down在渐变方块内, 且move也在渐变方块内
                     mDrawable = null;
                     mCenterPaint.setColor(interpRectColor(mRectColors, x));
@@ -267,17 +271,19 @@ public class ColorPickerView extends View {
      * @return
      */
     private int interpCircleColor(int colors[], float unit) {
+//        Log.e("unit","unit:"+unit);
         if (unit <= 0) {
+//            Log.e("unit","colors[0]"+colors[0]);
             return colors[0];
         }
         if (unit >= 1) {
+//            Log.e("unit","colors.length - 1:"+(colors.length - 1));
             return colors[colors.length - 1];
         }
 
         float p = unit * (colors.length - 1);
         int i = (int) p;
         p -= i;
-
         // now p is just the fractional part [0...1) and i is the index
         int c0 = colors[i];
         int c1 = colors[i + 1];
@@ -285,7 +291,7 @@ public class ColorPickerView extends View {
         int r = ave(Color.red(c0), Color.red(c1), p);
         int g = ave(Color.green(c0), Color.green(c1), p);
         int b = ave(Color.blue(c0), Color.blue(c1), p);
-
+        Log.e("ColorPickerView", "A:" + a + " R:" + r + "  G:" + g + "  B:" + b);
         return Color.argb(a, r, g, b);
     }
 
@@ -316,6 +322,7 @@ public class ColorPickerView extends View {
     }
 
     private int ave(int s, int d, float p) {
+        Log.e("unit", "Math.round(p * (d - s) :" +(s +Math.round(p * (d - s))));
         return s + Math.round(p * (d - s));
     }
 

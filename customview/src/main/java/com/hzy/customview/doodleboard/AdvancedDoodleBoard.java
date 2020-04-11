@@ -258,4 +258,9 @@ public class AdvancedDoodleBoard extends View {
         Path mPath = new Path(); // 涂鸦轨迹
         float mX, mY; // 轨迹偏移值
     }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
+    }
 }

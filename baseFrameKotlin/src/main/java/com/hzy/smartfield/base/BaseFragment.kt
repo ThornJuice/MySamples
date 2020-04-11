@@ -62,4 +62,5 @@ abstract class BaseFragment : Fragment() {
             EventBus.getDefault().unregister(this)
         }
     }
+
 }

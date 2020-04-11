@@ -72,4 +72,5 @@
     <dimen name="sp40">40sp</dimen>
     <dimen name="sp50">50sp</dimen>
     <dimen name="sp55">55sp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
