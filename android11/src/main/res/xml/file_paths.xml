@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <paths>
+        <!--    <external-files-path name="my_images" path="Android/data/com.jiushang.android11/files/Pictures" />-->
+        <external-files-path
+            name="external_file_path"
+            path="" />
+        <root-path
+            name="root-path"
+            path="" />
+    </paths>
+</resources>

@@ -1,16 +1,11 @@
 package com.hzy.wan.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
-import com.google.gson.JsonArray
 import com.hzy.wan.bean.BannerBean
 import com.hzy.wan.bean.HomeArticleBean
 import com.hzy.wan.http.RetrofitManager
-import com.just.agentweb.LogUtils
 import kotlinx.coroutines.*
-import java.lang.reflect.GenericDeclaration
 
 class HomeViewModel : ViewModel() {
 

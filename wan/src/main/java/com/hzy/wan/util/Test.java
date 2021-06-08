@@ -1,10 +1,8 @@
 package com.hzy.wan.util;
 
-import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.hzy.wan.App;
 
 public class Test {
@@ -33,4 +31,5 @@ public class Test {
        Glide.with(App.getAppContext()).load("").into(imageView);
 
     }
+
 }

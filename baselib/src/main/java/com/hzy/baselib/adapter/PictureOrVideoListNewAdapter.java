@@ -9,7 +9,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 
 import com.hzy.baselib.R;
 import com.hzy.baselib.util.GlideUtil;
-import com.hzy.baselib.util.LogUtils;
+import com.hzy.baselib.util.LogUtil;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
@@ -69,9 +69,9 @@ public class PictureOrVideoListNewAdapter extends BaseQuickAdapter<LocalMedia, B
             }
             // 图片
             try {
-                LogUtils.INSTANCE.i("原图地址::", media.getPath());
-                LogUtils.INSTANCE.i("原图剪切地址::", media.getCutPath());
-                LogUtils.INSTANCE.i("原图压缩地址::", media.getCompressPath());
+                LogUtil.INSTANCE.i("原图地址::", media.getPath());
+                LogUtil.INSTANCE.i("原图剪切地址::", media.getCutPath());
+                LogUtil.INSTANCE.i("原图压缩地址::", media.getCompressPath());
             } catch (Exception e) {
                 e.printStackTrace();
             }

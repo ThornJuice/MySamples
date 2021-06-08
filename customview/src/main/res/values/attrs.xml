@@ -19,4 +19,7 @@
             <enum name="rightAndBottom" value="4" />
         </attr>
     </declare-styleable>
+    <declare-styleable name="MaterialEditText">
+        <attr name="useFloatingLabel" format="boolean"/>
+    </declare-styleable>
 </resources>

@@ -8,7 +8,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 
 import com.hzy.baselib.R;
 import com.hzy.baselib.util.GlideUtil;
-import com.hzy.baselib.util.LogUtils;
+import com.hzy.baselib.util.LogUtil;
 import com.hzy.baselib.util.PVAUtils;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.luck.picture.lib.tools.DateUtils;
@@ -58,11 +58,11 @@ public class PictureVideoShowAdapter extends BaseQuickAdapter<LocalMedia, BaseVi
         }
         // 图片
         if (media.isCompressed()) {
-            LogUtils.INSTANCE.i("compress image result:", new File(media.getCompressPath()).length() / 1024 + "k");
-            LogUtils.INSTANCE.i("压缩地址::", media.getCompressPath());
+            LogUtil.INSTANCE.i("compress image result:", new File(media.getCompressPath()).length() / 1024 + "k");
+            LogUtil.INSTANCE.i("压缩地址::", media.getCompressPath());
         }
         try {
-            LogUtils.INSTANCE.i("原图地址::", media.getPath());
+            LogUtil.INSTANCE.i("原图地址::", media.getPath());
             if (PVAUtils.getFileLastType(media.getPath()).equals("video/3gp")) {
                 long duration = media.getDuration();
                 helper.setText(R.id.tv_dutration, DateUtils.timeParse(duration))
@@ -77,7 +77,7 @@ public class PictureVideoShowAdapter extends BaseQuickAdapter<LocalMedia, BaseVi
         //int pictureType = PictureMimeType.isPictureType(media.getPictureType());
         if (media.isCut()) {
             try {
-                LogUtils.INSTANCE.i("裁剪地址::", media.getCutPath());
+                LogUtil.INSTANCE.i("裁剪地址::", media.getCutPath());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -3,7 +3,7 @@ package com.hzy.baselib.util
 import android.util.Log
 
 
-object LogUtils {
+object LogUtil {
 
     var isDebug = true// 是否需要打印bug，可以在application的onCreate函数里面初始化
     private val TAG = "XLogUtil"

@@ -1,5 +1,6 @@
 package com.hzy.wan
 
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -11,6 +12,7 @@ import com.hzy.wan.fragment.HomeFragment
 import com.hzy.wan.fragment.OfficialAccountsFragment
 import com.hzy.wan.fragment.ProjectsFragment
 import com.hzy.wan.fragment.SystemFragment
+import com.hzy.wan.util.LaunchRecord
 import com.ju.baselibrary.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,7 +29,13 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
     private var systemFragment: SystemFragment? = null
     private var mCurrentFragment: Fragment? = null
 
+
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        LaunchRecord.endRecord("onWindowFocusChanged")
+    }
     override fun initView() {
+
         baseTitleBar.visibility = View.GONE
         fragmentManager = supportFragmentManager
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED)
@@ -156,11 +164,11 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
             systemFragment = SystemFragment()
         }
         val transaction = supportFragmentManager.beginTransaction()
-        transaction!!.add(R.id.container, homeFragment!!,"1").hide(homeFragment!!)
-        transaction!!.add(R.id.container, officialAccountsFragment!!,"2").hide(officialAccountsFragment!!)
-        transaction!!.add(R.id.container, projectsFragment!!,"3").hide(projectsFragment!!)
-        transaction!!.add(R.id.container, systemFragment!!,"4").hide(systemFragment!!)
-        transaction!!.show(homeFragment!!).commit()
+        transaction.add(R.id.container, homeFragment!!,"1").hide(homeFragment!!)
+        transaction.add(R.id.container, officialAccountsFragment!!,"2").hide(officialAccountsFragment!!)
+        transaction.add(R.id.container, projectsFragment!!,"3").hide(projectsFragment!!)
+        transaction.add(R.id.container, systemFragment!!,"4").hide(systemFragment!!)
+        transaction.show(homeFragment!!).commit()
         mCurrentFragment = homeFragment!!
     }
 
@@ -169,11 +177,11 @@ class MainActivity : BaseActivity(), BottomNavigationBar.OnTabSelectedListener {
         val transaction = manage.beginTransaction()
         if (mCurrentFragment != fragment) {
             if (!fragment.isAdded) {
-                transaction!!.add(R.id.container, fragment)
+                transaction.add(R.id.container, fragment)
             }
-            transaction!!.hide(mCurrentFragment!!)
-            transaction!!.show(fragment)
-            transaction!!.commit()
+            transaction.hide(mCurrentFragment!!)
+            transaction.show(fragment)
+            transaction.commit()
             mCurrentFragment = fragment
         }
         //transaction.addToBackStack("sss")

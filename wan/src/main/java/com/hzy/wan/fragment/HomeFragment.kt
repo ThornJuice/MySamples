@@ -3,16 +3,13 @@ package com.hzy.wan.fragment
 
 import android.os.Build
 import android.os.Bundle
-import android.os.Debug
 import android.text.Html
 import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
@@ -27,13 +24,15 @@ import com.hzy.wan.jump
 import com.hzy.wan.viewmodel.HomeViewModel
 import com.ju.baselibrary.base.BaseFragment
 import com.ju.baselibrary.callback.RetryClickListener
+import com.ju.baselibrary.utils.XLog
 import com.zhpan.bannerview.BannerViewPager
 import com.zhpan.bannerview.adapter.OnPageChangeListenerAdapter
 import com.zhpan.bannerview.constants.IndicatorSlideMode
 import com.zhpan.bannerview.constants.IndicatorStyle
 import com.zhpan.bannerview.constants.PageStyle
 import kotlinx.android.synthetic.main.fragment_home.*
-
+import okhttp3.*
+import java.io.IOException
 
 
 /**
@@ -49,6 +48,7 @@ class HomeFragment : BaseFragment() {
     var page = 1
     override fun init() {
         title_bar.setPageTitle("首页")
+
     }
 
     override fun getLayoutId(): Int {
@@ -125,6 +125,7 @@ class HomeFragment : BaseFragment() {
                 bannerViewPager?.create(t?.data)
             }
         })
+        test()
     }
 
 
@@ -173,4 +174,23 @@ class HomeFragment : BaseFragment() {
                     }
         }
     }
+
+    private fun test() {
+        XLog.e("http......","requset")
+        val client = OkHttpClient()
+        val build = client.newCall(Request.Builder()
+                .url("https://www.wanandroid.com/banner/json")
+                .build())
+        build.enqueue(object:Callback{
+            override fun onFailure(call: Call, e: IOException) {
+                XLog.e("http......","error"+e.message)
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                XLog.e("http......","response"+response.body()?.string())
+            }
+
+        })
+    }
+
 }

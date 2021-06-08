@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".animation.TestAnimationActivity">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/thelittleprince2" />
+
+    <com.hzy.customview.view.PointView
+        android:visibility="gone"
+        android:id="@+id/pointView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.hzy.customview.view.ProvinceView
+        android:visibility="gone"
+        android:id="@+id/provinceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <com.hzy.customview.view.HeadPhotoView
+        android:layout_width="500px"
+        android:layout_height="500px" />
+
+</LinearLayout>

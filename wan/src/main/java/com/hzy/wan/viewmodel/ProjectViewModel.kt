@@ -1,10 +1,7 @@
 package com.hzy.wan.viewmodel
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hzy.wan.bean.BannerBean
-import com.hzy.wan.bean.HomeArticleBean
 import com.hzy.wan.bean.ProjectBean
 import com.hzy.wan.bean.ProjectTypeBean
 import com.hzy.wan.http.RetrofitManager

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A3A2A2"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:context="com.hzy.customview.TestColorPickerActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/circleImageStyle" />
+
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/cutImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/diamondImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/topLeftRoundImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/rocketImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/waterImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/leafImageStyle" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:src="@mipmap/avatar"
+            app:shapeAppearanceOverlay="@style/tipImageStyle" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

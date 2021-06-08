@@ -3,9 +3,7 @@ package com.hzy.myapplication2;
 import android.content.Context;
 import android.util.TypedValue;
 
-/**
- * Create by Wangzhenkai at 2018.8.8
- */
+
 public class DensityUtil {
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)

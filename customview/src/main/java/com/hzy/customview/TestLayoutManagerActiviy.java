@@ -41,7 +41,7 @@ public class TestLayoutManagerActiviy extends AppCompatActivity {
             public void onBindViewHolder(@NonNull VH viewHolder, int i) {
                 viewHolder.tv.setText(i+"");
                 if (i%2 == 0){
-                    viewHolder.tv.setBackgroundColor(Color.WHITE);
+                    viewHolder.tv.setBackgroundColor(Color.RED);
                 }else {
                     viewHolder.tv.setBackgroundColor(Color.YELLOW);
                 }

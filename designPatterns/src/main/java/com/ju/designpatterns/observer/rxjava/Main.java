@@ -7,9 +7,9 @@ public class Main {
             @Override
             public void call(Subscribe<? super Integer> subscribe) {
 
-                for (int i = 0; i < 5; i++) {
-                    System.out.println("OnSubscribe@ "+Thread.currentThread().getName());
-                    subscribe.onNext(i);
+                for (int i = 0; i < 1; i++) {
+                    System.out.println("OnSubscribe: "+Thread.currentThread().getName());
+                    subscribe.onNext(100);
                 }
             }
         })
@@ -36,7 +36,7 @@ public class Main {
                     @Override
                     public void onNext(Integer value) {
                         System.out.println("onNext:  " + value);
-                        System.out.println("Subscriber@ "+Thread.currentThread().getName());
+                        System.out.println("Subscriber: "+Thread.currentThread().getName());
                     }
 
                 });

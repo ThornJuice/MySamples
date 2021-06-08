@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="系统层设计
+
+一个新系统留20%来满足当前已有业务。 剩下80% 用来系统演进。可以思考下，天猫首页一直变，却依然能保证性能达标。
+
+
+业务层设计
+
+已有业务是否与其它业务产生了耦合，是否存在前置业务，如果有那前置业务的权限又在哪里。已有业务是否能根据系统演进程度不断兼容新业务？
+
+
+应用层设计
+
+例如微前端，例如组件库，例如npm install
+webpack优化
+骨架屏
+路有动态按需加载
+
+
+代码层设计
+
+写好高性能React 代码？如何利用好Vue3 时间切片？
+不说了。太初级的浪费慢慢积累就好。
+
+作者：在剥我的壳
+链接：https://juejin.cn/post/6970987477133705252
+来源：掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.ju.jetpackcompose.NestedScrollWebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.core.widget.NestedScrollView>

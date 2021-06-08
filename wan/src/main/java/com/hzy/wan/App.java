@@ -1,5 +1,8 @@
 package com.hzy.wan;
 
+import android.content.Context;
+
+import com.hzy.wan.util.LaunchRecord;
 import com.ju.baselibrary.base.BaseApp;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
@@ -14,5 +17,11 @@ public class App extends BaseApp {
         MMKV kv = MMKV.defaultMMKV();
 
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        LaunchRecord.Companion.startRecord();
     }
 }

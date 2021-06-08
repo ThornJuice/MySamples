@@ -1,1 +1,5 @@
+include ':recyclerview'
+include ':jetpackcompose'
+include ':arithmetic'
+include ':android11'
 include ':greenDaoSample', ':customProgressBar', ':borderLayout', ':notifySample', ':retrofit2sample', ':mvpsample', ':baseFrameKotlin', ':baselibrary', ':testaucsample', ':wan', ':baselib', ':navigatin', ':customview', ':designPatterns'
