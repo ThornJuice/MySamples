@@ -55,6 +55,7 @@ public abstract class BaseLazyFragment extends Fragment {
         isViewPrepared = true;
         init();
         initView(view);
+        //setUserVisibleHint执行在onViewCreated之前，所以首次加载需要调用一次lazyLoadDataIfPrepared
         lazyLoadDataIfPrepared();
     }
 
